@@ -8,21 +8,20 @@ public class Dialogue : MonoBehaviour
     public TextMeshProUGUI intro;
     public string[] phrases;
     int index;
-
-    public static bool nextSentence;
-    
+        
     public void Awake()
     {
         intro = GameObject.Find("Dialogue").GetComponent<TextMeshProUGUI>();
     }
-      
+
+    private void Start()
+    {
+        First();
+    }
+
     public void First()
     {
         intro.text = phrases[0];
-        nextSentence = true;
-
-        gameObject.SetActive(false);
-        Debug.Log(nextSentence);
     }
 
     IEnumerator PrintMessages()
@@ -47,7 +46,13 @@ public class Dialogue : MonoBehaviour
 
         else
             intro.text = "";
+
+        if (index == phrases.Length - 1)
+        {
+            gameObject.SetActive(false);
+        }
     }
+
 }
 
 /*
