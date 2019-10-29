@@ -1,40 +1,58 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class Dialogue : MonoBehaviour
 {
-    public Text intro;
-    // public List<TextMeshProUGUI> story = new List<TextMeshProUGUI>(4);
+    public TextMeshProUGUI intro;
+    public string[] phrases;
+    int index;
 
+    public static bool nextSentence;
+    
     public void Awake()
     {
-        intro = GameObject.Find("Dialogue").GetComponent<Text>();
+        intro = GameObject.Find("Dialogue").GetComponent<TextMeshProUGUI>();
     }
-    public void Story()
+      
+    public void First()
     {
-        StartCoroutine("PrintMessages");
+        intro.text = phrases[0];
+        nextSentence = true;
+
+        gameObject.SetActive(false);
+        Debug.Log(nextSentence);
     }
 
     IEnumerator PrintMessages()
     {
-        intro.text = "You must find the way to save the city.";
-   
-        yield return new WaitForSeconds(5);
+        foreach (char p in phrases[index].ToCharArray())
+        {
+            intro.text += p;
+        }
 
-        intro.text = "But you know...";
+        yield return new WaitForSeconds(0.2f);
+    }
 
-        yield return new WaitForSeconds(5);
+    public void NextSentence()
+    {
+        if(index < phrases.Length - 1)
+        {
+            index++;
+            intro.text = "";
 
-        intro.text = "... sometimes the only way to be successful ";
+            StartCoroutine(PrintMessages());            
+        }
 
-        yield return new WaitForSeconds(5);
-
-        intro.text = "is fight!";
-
-        yield return new WaitForSeconds(5);
-
-        intro.text = "";
+        else
+            intro.text = "";
     }
 }
+
+/*
+ "You must find the way to save the city."
+ "But you know..."
+ "... sometimes the only way to be successful "
+ "is fight!"
+     */
