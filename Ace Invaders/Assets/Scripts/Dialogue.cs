@@ -8,6 +8,8 @@ public class Dialogue : MonoBehaviour
     public TextMeshProUGUI intro;
     public string[] phrases;
     int index;
+
+    public GameObject button;
         
     public void Awake()
     {
@@ -49,7 +51,7 @@ public class Dialogue : MonoBehaviour
 
         if (index == phrases.Length - 1)
         {
-            gameObject.SetActive(false);
+            button.SetActive(false);            
         }
     }
 
