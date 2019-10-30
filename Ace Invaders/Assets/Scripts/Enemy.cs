@@ -21,8 +21,8 @@ public class Enemy : MonoBehaviour
             enemie = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
             pos.x = Random.Range(-8.17f, 8.17f);
-            pos.y = Random.Range(2.5f, 5);
-            pos.z = -78;
+            pos.y = 1.5f;
+            pos.z = Random.Range(-73.5f, 74f); 
             enemie.transform.position = pos;
         }
     }
