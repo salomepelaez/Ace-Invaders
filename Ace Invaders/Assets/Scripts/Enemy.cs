@@ -8,13 +8,9 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         Initialize();
+        InvokeRepeating("Movement", 3f, 5f);
     }
-
-    private void Update()
-    {
-        Movement();
-    }
-
+       
     int enemies = 3;
     
     void Initialize()
@@ -25,19 +21,24 @@ public class Enemy : MonoBehaviour
             enemie = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
             pos.x = Random.Range(-8.17f, 8.17f);
-            pos.y = Random.Range(-3, 5);
+            pos.y = Random.Range(2.5f, 5);
             pos.z = -78;
             enemie.transform.position = pos;
         }
     }
 
-    float speed = 0.5f;
+    float speed = 2f;
     void Movement()
     {
         switch(Random.Range(0, 1))
         {
             case 0:
                 transform.position += transform.right * speed;
+                Debug.Log("moving");
+                break;
+
+            case 1:
+                transform.position -= transform.right * speed;
                 break;
         }
     }
