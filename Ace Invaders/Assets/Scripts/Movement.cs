@@ -26,11 +26,13 @@ public class Movement : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             transform.position += transform.right * speed;
+            transform.rotation = Quaternion.Euler(Vector3.Lerp(transform.rotation.eulerAngles, Vector3.down * 15, 1 * Time.deltaTime));
         }
 
         if (Input.GetKey(KeyCode.A))
         {
             transform.position -= transform.right * speed;
+            transform.rotation = Quaternion.Euler(Vector3.Lerp(transform.rotation.eulerAngles, Vector3.up * 15, 2 * Time.deltaTime));
         }
 
         Vector3 pos = new Vector3();

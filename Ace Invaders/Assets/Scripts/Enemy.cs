@@ -35,7 +35,6 @@ public class Enemy : MonoBehaviour
 
             if (gameObject.transform.position.x >= 8.17)
             {
-                Debug.Log("lel");
                 behaviour = Behaviour.Left;
             }
         }

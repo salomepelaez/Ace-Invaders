@@ -602,7 +602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95caf78e057477740b3c5fa630cda0eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 1570761313}
+  laser: {fileID: 1570761313}
 --- !u!1 &978772657
 GameObject:
   m_ObjectHideFlags: 0
@@ -943,22 +943,22 @@ PrefabInstance:
     - target: {fileID: 3861565620988483532, guid: df2ab157ddfa896428cb411995243235,
         type: 3}
       propertyPath: m_Name
-      value: Bullet
+      value: Laser
       objectReference: {fileID: 0}
     - target: {fileID: 4718862777741605586, guid: df2ab157ddfa896428cb411995243235,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.951
+      value: 8.14
       objectReference: {fileID: 0}
     - target: {fileID: 4718862777741605586, guid: df2ab157ddfa896428cb411995243235,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.129
+      value: -3.22
       objectReference: {fileID: 0}
     - target: {fileID: 4718862777741605586, guid: df2ab157ddfa896428cb411995243235,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.168
+      value: -0.03
       objectReference: {fileID: 0}
     - target: {fileID: 4718862777741605586, guid: df2ab157ddfa896428cb411995243235,
         type: 3}
@@ -1003,17 +1003,17 @@ PrefabInstance:
     - target: {fileID: 4718862777741605586, guid: df2ab157ddfa896428cb411995243235,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.20478961
+      value: 0.18405466
       objectReference: {fileID: 0}
     - target: {fileID: 4718862777741605586, guid: df2ab157ddfa896428cb411995243235,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.409744
+      value: 7.274932
       objectReference: {fileID: 0}
     - target: {fileID: 4718862777741605586, guid: df2ab157ddfa896428cb411995243235,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.15082373
+      value: 0.13555282
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df2ab157ddfa896428cb411995243235, type: 3}

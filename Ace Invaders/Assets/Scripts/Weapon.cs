@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    public GameObject bullet;
+    public GameObject laser;
 
-    void Update()
+    private void Start()
     {
-        if(Input.GetKey((KeyCode.X)))
-        {
-            bullet = Instantiate(bullet) as GameObject;
-        }
+        laser.SetActive(false);
+    }
+
+    private void OnMouseDown()
+    {
+        laser.SetActive(true);
     }
 }
