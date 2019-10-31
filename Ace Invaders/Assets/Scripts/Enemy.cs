@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public static int life = 100;
+    public int life = 100;
     public GameObject bullet;
     //float bulletSpeed = 500f;
 
@@ -12,7 +12,6 @@ public class Enemy : MonoBehaviour
     {        
         InvokeRepeating("Movement", 3f, 1f);
         //InvokeRepeating("DoDamage", 5f, 2f);
-
     }
 
     float speed = 0.2f;
@@ -50,6 +49,21 @@ public class Enemy : MonoBehaviour
         }        
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.tag == "Bullet")
+        {
+            Debug.Log(life);
+            life = life - Bullet.weaponDamage;
+
+            if (life <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
+
+    }
+
     /*void DoDamage()
     {
         if(Dialogue.active == true)
@@ -62,7 +76,7 @@ public class Enemy : MonoBehaviour
             Destroy(instBullet, 10f);
         }
     }*/
-   
+
     enum Behaviour
     {
         Right, Left

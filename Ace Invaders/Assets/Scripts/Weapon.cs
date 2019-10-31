@@ -6,8 +6,6 @@ public class Weapon : MonoBehaviour
 {
     public GameObject bullet;
     float speed = 800f;
-    
-    int weaponDamage = 25;
 
     void Awake()
     {
@@ -23,18 +21,7 @@ public class Weapon : MonoBehaviour
             Rigidbody rigidbody = instBullet.GetComponent<Rigidbody>();
             rigidbody.AddForce(Vector3.forward * speed);
 
-            Destroy(instBullet, 10f);
+            Destroy(instBullet, 5f);
         }
-
-       
-    }    
-
-    void OnCollisionEnter(Collision collision)
-    {
-        if(collision.transform.tag == "Enemy")
-        {
-            Enemy.life = Enemy.life - weaponDamage;
-            Debug.Log(Enemy.life);
-        }    
-    }
+    }   
 }
