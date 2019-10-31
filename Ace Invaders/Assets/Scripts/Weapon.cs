@@ -5,7 +5,14 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     public GameObject bullet;
-    float speed = 500f;
+    float speed = 800f;
+    
+    int weaponDamage = 25;
+
+    void Awake()
+    {
+        transform.tag = "Bullet";
+    }
 
     void Update()
     {
@@ -18,5 +25,16 @@ public class Weapon : MonoBehaviour
 
             Destroy(instBullet, 10f);
         }
+
+       
+    }    
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if(collision.transform.tag == "Enemy")
+        {
+            Enemy.life = Enemy.life - weaponDamage;
+            Debug.Log(Enemy.life);
+        }    
     }
 }

@@ -9,6 +9,8 @@ public class Dialogue : MonoBehaviour
     public string[] phrases;
     int index;
 
+    public static bool active;
+
     public GameObject button;
         
     public void Awake()
@@ -52,16 +54,12 @@ public class Dialogue : MonoBehaviour
         if (index == phrases.Length - 1)
         {
             button.SetActive(false);  
-            intro.text = "";                                 
+            intro.text = ""; 
+
+            active = true;                                
         }        
     }
 
 
 }
 
-/*
- "You must find the way to save the city."
- "But you know..."
- "... sometimes the only way to be successful "
- "is fight!"
-     */
