@@ -51,9 +51,11 @@ public class Dialogue : MonoBehaviour
 
         if (index == phrases.Length - 1)
         {
-            button.SetActive(false);            
-        }
+            button.SetActive(false);  
+            intro.text = "";                                 
+        }        
     }
+
 
 }
 
