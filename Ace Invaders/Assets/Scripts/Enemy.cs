@@ -6,7 +6,9 @@ public class Enemy : MonoBehaviour
 {
     public int life = 100;
     public GameObject bullet;
-    public static int counter;
+    int counter;
+    public static bool next;
+
     //float bulletSpeed = 500f;
 
     public void Start()
@@ -60,11 +62,14 @@ public class Enemy : MonoBehaviour
             {
                 Destroy(gameObject);
                 counter++;
-                Debug.Log(counter);
+
+                if (counter == 3)
+                    next = true;
             }
         }
 
     }
+
 
     /*void DoDamage()
     {

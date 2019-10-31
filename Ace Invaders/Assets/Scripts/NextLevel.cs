@@ -4,16 +4,23 @@ using UnityEngine;
 
 public class NextLevel : MonoBehaviour
 {
+    public GameObject next;
+
     private void Start()
     {
-        gameObject.SetActive(false);
+        next.SetActive(false);
+    }
+
+    private void Update()
+    {
+        FirstLevel();
     }
 
     public void FirstLevel()
     {
-        if (Enemy.counter == 3)
+        if (Enemy.next == true)
         {
-            gameObject.SetActive(true);
+            next.SetActive(true);
         }
     }
 }
