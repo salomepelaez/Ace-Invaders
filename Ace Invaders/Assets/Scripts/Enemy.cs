@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
     public int life = 100;
     public GameObject bullet;
+    public static int counter;
     //float bulletSpeed = 500f;
 
     public void Start()
@@ -53,12 +54,13 @@ public class Enemy : MonoBehaviour
     {
         if (other.transform.tag == "Bullet")
         {
-            Debug.Log(life);
             life = life - Bullet.weaponDamage;
 
             if (life <= 0)
             {
                 Destroy(gameObject);
+                counter++;
+                Debug.Log(counter);
             }
         }
 
