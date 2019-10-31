@@ -9,12 +9,9 @@ public class Enemy : MonoBehaviour
     int counter;
     public static bool next;
 
-    //float bulletSpeed = 500f;
-
     public void Start()
     {        
         InvokeRepeating("Movement", 3f, 1f);
-        //InvokeRepeating("DoDamage", 5f, 2f);
     }
 
     float speed = 0.2f;
@@ -65,25 +62,12 @@ public class Enemy : MonoBehaviour
 
                 if (counter == 3)
                     next = true;
+
+                Debug.Log(next);
             }
         }
-
     }
-
-
-    /*void DoDamage()
-    {
-        if(Dialogue.active == true)
-        {
-            GameObject instBullet = Instantiate(bullet, transform.position, Quaternion.identity) as GameObject;
-            instBullet.transform.Rotate(Vector3.left * 90);
-            Rigidbody rigidbody = instBullet.GetComponent<Rigidbody>();
-            rigidbody.AddForce(Vector3.forward * speed);
-
-            Destroy(instBullet, 10f);
-        }
-    }*/
-
+       
     enum Behaviour
     {
         Right, Left
