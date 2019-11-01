@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class EnemyBulletController : MonoBehaviour
 {
-   public static int weaponDamage = 10;
+    float speed = 800;
 
-    /*private void OnTriggerEnter(Collider other)
+    void Update()
     {
-        if (other.transform.tag == "Player")
-        {
-            Destroy(gameObject);
-        }
-    }*/
+        transform.position -= transform.forward * speed * Time.deltaTime;
+        Destroy(gameObject, 1.5f);
+    }
 }

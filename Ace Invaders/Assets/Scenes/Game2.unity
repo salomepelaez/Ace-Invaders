@@ -180,7 +180,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30ff1292e7d437a45b391c37c9cd1687, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 100
+  move: 0
+  speed: 0.2
+  bullet: {fileID: 0}
 --- !u!114 &184486528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,6 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b69f6c6599dcbe49aea5656860f44b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
 --- !u!1 &844017377
 GameObject:
   m_ObjectHideFlags: 0

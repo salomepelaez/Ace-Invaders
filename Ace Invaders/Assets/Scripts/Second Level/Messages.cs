@@ -22,6 +22,5 @@ public class Messages : MonoBehaviour
         continueButton.SetActive(false);
 
         goAhead = true;
-        Debug.Log(goAhead);
     }
 }

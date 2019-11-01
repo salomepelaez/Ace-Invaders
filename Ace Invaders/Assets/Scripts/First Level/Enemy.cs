@@ -76,7 +76,7 @@ public class Enemy : MonoBehaviour
                 if (counter == 3)
                     next = true;
 
-                Debug.Log(next);
+                Debug.Log(counter);
             }
         }
     }
