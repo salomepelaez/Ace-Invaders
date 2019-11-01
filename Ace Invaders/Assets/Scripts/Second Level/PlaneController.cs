@@ -8,7 +8,8 @@ public class PlaneController : MonoBehaviour
 
     void Update()
     {
-        Move();
+        if (Messages.goAhead == true)        
+            Move();
     }
 
     void Move()

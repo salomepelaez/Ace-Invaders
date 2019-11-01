@@ -11,11 +11,15 @@ public class EnemyController : MonoBehaviour
     public static bool next;
 
     public void Start()
-    {        
+    {
+        if (Messages.goAhead == true) 
         InvokeRepeating("FirstMovement", 2f, 1f);
 
-        if (move == true)
-            InvokeRepeating("Movement", 2f, 1f);
+        if (Messages.goAhead == true)
+        {
+            if (move == true)
+                InvokeRepeating("Movement", 2f, 1f);
+        }
     }
 
     float speed = 0.2f;
@@ -74,10 +78,10 @@ public class EnemyController : MonoBehaviour
                 Destroy(gameObject);
                 counter++;
 
-                if (counter == 3)
+                if (counter == 10)
                     next = true;
 
-                //Debug.Log(next);
+                Debug.Log("bien");
             }
         }
     }

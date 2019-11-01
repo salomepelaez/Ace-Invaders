@@ -15,7 +15,7 @@ public class Dialogue : MonoBehaviour
         
     public void Awake()
     {
-        intro = GameObject.Find("Dialogue").GetComponent<TextMeshProUGUI>();
+        intro = GameObject.Find("Dialogue").GetComponent<TextMeshProUGUI>();        
     }
 
     private void Start()
@@ -60,5 +60,6 @@ public class Dialogue : MonoBehaviour
         }        
     }
 
+   
 }
 
