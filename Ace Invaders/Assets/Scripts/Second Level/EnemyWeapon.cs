@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyWeapon : MonoBehaviour
 {
-    public GameObject bullet;
+    /*public GameObject bullet;
     float speed = 800f;
 
     void Awake()
@@ -25,5 +25,5 @@ public class EnemyWeapon : MonoBehaviour
         rigidbody.AddForce(Vector3.forward * speed);
 
         Destroy(instBullet, 3f);
-    }
+    }*/
 }

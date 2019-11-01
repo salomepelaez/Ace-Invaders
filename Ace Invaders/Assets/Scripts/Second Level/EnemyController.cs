@@ -7,18 +7,32 @@ public class EnemyController : MonoBehaviour
     public int life = 100;
     public GameObject bullet;
     int counter;
+
+    bool move;
     public static bool next;
 
     public void Start()
-    {        
-        InvokeRepeating("Movement", 3f, 1f);
+    {
+        InvokeRepeating("FirstMovement", 2f, 1f);
+        if (move == true)
+            InvokeRepeating("Movement", 2f, 1f);
     }
 
-    float speed = 0.5f;
+    float speed = 0.2f;
     Behaviour behaviour;
 
-    void Movement()
+    public void FirstMovement()
     {        
+        if (gameObject.transform.position.z >= 4f)
+            transform.position -= transform.forward * speed;
+
+        if (gameObject.transform.position.z <= 4f)
+            move = true;
+        
+    }
+
+    public void Movement()
+    {
         switch (Random.Range(0, 2))
         {
             case 0:
@@ -29,7 +43,7 @@ public class EnemyController : MonoBehaviour
                 behaviour = Behaviour.Right;
                 break;
         }
-
+                
         if (behaviour == Behaviour.Left && gameObject.transform.position.x >= -6f)
         {
             gameObject.transform.position -= transform.right * speed;
@@ -44,7 +58,7 @@ public class EnemyController : MonoBehaviour
                 behaviour = Behaviour.Left;
             }
         }
-               
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -61,7 +75,7 @@ public class EnemyController : MonoBehaviour
                 if (counter == 3)
                     next = true;
 
-                Debug.Log(next);
+                //Debug.Log(next);
             }
         }
     }
