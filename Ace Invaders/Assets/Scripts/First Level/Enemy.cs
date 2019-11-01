@@ -8,14 +8,27 @@ public class Enemy : MonoBehaviour
     public GameObject bullet;
     int counter;
     public static bool next;
+    bool move;
 
     public void Start()
     {        
-        InvokeRepeating("Movement", 3f, 1f);
+        InvokeRepeating("FirstMovement", 2f, 1f);
+        InvokeRepeating("Movement", 2f, 1f);
     }
 
     float speed = 0.2f;
     Behaviour behaviour;
+
+    void FirstMovement()
+    {
+        if (Dialogue.active == true && gameObject.transform.position.z >= -74f)
+        {
+            transform.position -= transform.forward * speed;
+
+            if (gameObject.transform.position.z <= -74f)
+                move = true;
+        }
+    }
 
     void Movement()
     {        
@@ -30,7 +43,7 @@ public class Enemy : MonoBehaviour
                 break;
         }
 
-        if(Dialogue.active == true)
+        if(move == true)
         {
             if (behaviour == Behaviour.Left && gameObject.transform.position.x >= -8.17f)
             {
@@ -46,7 +59,7 @@ public class Enemy : MonoBehaviour
                     behaviour = Behaviour.Left;
                 }
             }
-        }        
+        }   
     }
 
     private void OnTriggerEnter(Collider other)
