@@ -2,34 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movement : MonoBehaviour
+public class PlaneController : MonoBehaviour
 {
     float speed = 0.1f;
 
     void Update()
     {
-        if(Dialogue.active == true)
         Move();
     }
 
     void Move()
     {      
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W) && gameObject.transform.position.z <= 8f)
         {
             transform.position += transform.forward * speed;
         }
 
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S) && gameObject.transform.position.z >= -0.4f)
         {
             transform.position -= transform.forward * speed;
         }
 
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) && gameObject.transform.position.x <= 6f)
         {
             transform.position += transform.right * speed;
         }
 
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) && gameObject.transform.position.x >= -6f)
         {
             transform.position -= transform.right * speed;
         }
@@ -45,16 +44,6 @@ public class Movement : MonoBehaviour
             pos.x = 8.17f;
         }
 
-        else if (pos.y > -3)
-        {
-            pos.y = -3;
-        }
-
-        else if (pos.y > 5)
-        {
-            pos.y = 5;
-        }
-
         else if (pos.z >= -88.3)
         {
             pos.z = -88.3f;
@@ -65,5 +54,4 @@ public class Movement : MonoBehaviour
             pos.z = 88.3f;
         }
     }
-
 }
