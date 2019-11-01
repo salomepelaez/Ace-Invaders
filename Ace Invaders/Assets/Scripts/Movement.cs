@@ -14,22 +14,22 @@ public class Plane : MonoBehaviour
 
     void Move()
     {      
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W) && gameObject.transform.position.z <= -72f)
         {
             transform.position += transform.forward * speed;
         }
 
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S) && gameObject.transform.position.z >= -80f)
         {
             transform.position -= transform.forward * speed;
         }
 
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) && gameObject.transform.position.x <= 8.17f)
         {
             transform.position += transform.right * speed;
         }
 
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) && gameObject.transform.position.x >= -8.17f)
         {
             transform.position -= transform.right * speed;
         }
