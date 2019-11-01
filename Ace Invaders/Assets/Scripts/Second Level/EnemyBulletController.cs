@@ -9,6 +9,6 @@ public class EnemyBulletController : MonoBehaviour
     void Update()
     {
         transform.position -= transform.forward * speed * Time.deltaTime;
-        Destroy(gameObject, 1.5f);
+        Destroy(gameObject, 3f);
     }
 }

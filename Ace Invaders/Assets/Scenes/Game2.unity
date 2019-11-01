@@ -181,7 +181,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   move: 0
-  speed: 0.2
   bullet: {fileID: 0}
 --- !u!114 &184486528
 MonoBehaviour:
@@ -837,7 +836,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: 5a25b4d63655d804c912031f88662156, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.19
+      value: -0.029
       objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: 5a25b4d63655d804c912031f88662156, type: 3}
       propertyPath: m_LocalPosition.y

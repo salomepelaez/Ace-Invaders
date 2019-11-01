@@ -6,7 +6,6 @@ public class Creator : MonoBehaviour
 {
     public GameObject enemy;
     GameObject bullet;
-    float speed = 800f;
     
     private void Start()
     {                

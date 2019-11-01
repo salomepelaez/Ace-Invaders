@@ -9,7 +9,7 @@ public class EnemyController : MonoBehaviour
     public bool move;
     public static bool next;
 
-    public float speed = 0.2f;
+    float speed = 0.2f;
     Behaviour behaviour;
 
     public GameObject bullet;
@@ -78,6 +78,7 @@ public class EnemyController : MonoBehaviour
 public class Enemy1 : EnemyController
 {
     //blabla
+    float speed1 = 0.5f;
     private void Start()
     {
         gameObject.GetComponent<Renderer>().material.color = Color.yellow;
@@ -89,7 +90,7 @@ public class Enemy1 : EnemyController
 
     void EnemyMove()
     {
-        transform.position -= transform.forward * speed;
+        transform.position -= transform.forward * speed1;
     }
     
 }
@@ -109,10 +110,12 @@ public class Enemy2 : EnemyController
             if (move == true)
                 InvokeRepeating("Movement", 2f, 1f);
         }
-        InvokeRepeating("DoDamage", 2f, 2f);
+
+        if (Messages.goAhead == true)
+            StartCoroutine("DoDamage");
     }
 
-    void DoDamage()
+    IEnumerator DoDamage()
     {
         if (Messages.goAhead == true)
         {
@@ -125,5 +128,7 @@ public class Enemy2 : EnemyController
             bullet.GetComponent<CapsuleCollider>().isTrigger = true;
             bullet.AddComponent<EnemyBulletController>();
         }
+
+        yield return new WaitForSeconds(2f);
     }
 }
