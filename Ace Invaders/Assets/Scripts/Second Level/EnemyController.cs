@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    public int life = 100;
-    public GameObject bullet;
     int counter;
-
+    public int life = 100;
+       
     bool move;
     public static bool next;
 
     public void Start()
-    {
+    {        
         InvokeRepeating("FirstMovement", 2f, 1f);
+
         if (move == true)
             InvokeRepeating("Movement", 2f, 1f);
     }
@@ -21,7 +21,9 @@ public class EnemyController : MonoBehaviour
     float speed = 0.2f;
     Behaviour behaviour;
 
-    public void FirstMovement()
+    
+
+    void FirstMovement()
     {        
         if (gameObject.transform.position.z >= 4f)
             transform.position -= transform.forward * speed;
@@ -31,7 +33,7 @@ public class EnemyController : MonoBehaviour
         
     }
 
-    public void Movement()
+    void Movement()
     {
         switch (Random.Range(0, 2))
         {

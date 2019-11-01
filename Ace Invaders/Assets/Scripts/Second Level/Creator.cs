@@ -4,26 +4,24 @@ using UnityEngine;
 
 public class Creator : MonoBehaviour
 {
-    public GameObject enemy;
+    GameObject enemy;
 
-    void Start()
+    private void Start()
     {
         InvokeRepeating("Create", 1f, 3f);
-        enemy.AddComponent<EnemyController>().FirstMovement();
     }
 
     void Create()
     {
-        for(int x = 0; x < 20; x++)
-        {
-            GameObject e = Instantiate(enemy) as GameObject;
+        enemy = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
-            Vector3 pos = new Vector3();
-            pos.x = Random.Range(-4.74f, 5.37f);
-            pos.y = 1.66f;
-            pos.z = 9.65f;
+        Vector3 pos = new Vector3();
+        pos.x = Random.Range(-4.74f, 5.37f);
+        pos.y = 1.66f;
+        pos.z = 9.65f;
 
-            e.transform.position = pos;
-        }
+        enemy.transform.position = pos;
+
+        enemy.AddComponent<EnemyController>();
     }
 }

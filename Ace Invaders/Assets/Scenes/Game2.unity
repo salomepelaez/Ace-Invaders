@@ -145,6 +145,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 184486526}
+  - component: {fileID: 184486528}
   - component: {fileID: 184486527}
   m_Layer: 0
   m_Name: Manager
@@ -176,10 +177,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 184486525}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30ff1292e7d437a45b391c37c9cd1687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: 100
+--- !u!114 &184486528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 184486525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b69f6c6599dcbe49aea5656860f44b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 2548249302236735945, guid: f3547c10e088c2d48a7b20c07c12567d, type: 3}
 --- !u!1 &844017377
 GameObject:
   m_ObjectHideFlags: 0
