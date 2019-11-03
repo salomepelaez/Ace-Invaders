@@ -2,9 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlaneController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     float speed = 0.1f;
+    
+    void Awake()
+    {
+        transform.tag = "Player";
+    }
 
     void Update()
     {
@@ -53,6 +58,17 @@ public class PlaneController : MonoBehaviour
         else if (pos.z >= 88.3)
         {
             pos.z = 88.3f;
+        }
+    }    
+
+    int life = 3;
+    
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.tag == "Enemy")
+        {
+            life = life - EnemyController.damage;
+            Debug.Log(life);
         }
     }
 }

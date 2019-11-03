@@ -2,14 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Plane : MonoBehaviour
+public class Player : MonoBehaviour
 {
     float speed = 0.1f;
 
     void Update()
     {
         if(Dialogue.active == true)
-        Move();
+        {
+            if(Manager.inGame == true)
+            {
+                Move();
+            }
+        }        
     }
 
     void Move()
@@ -66,4 +71,17 @@ public class Plane : MonoBehaviour
         }
     }
 
+    int life = 3;
+    
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.tag == "Enemy")
+        {
+            life = life - Enemy.damage;
+            Debug.Log(life);
+
+            if(life <= 0)
+                Manager.inGame = false;
+        }
+    }
 }

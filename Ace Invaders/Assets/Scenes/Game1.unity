@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.4964127, b: 0.57481724, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -684,6 +684,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b4efa8bbc9ea524dbd47df9f7c750dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &747918580
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747918578}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 30, y: 25, z: 30}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &747918581 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400012, guid: 5a25b4d63655d804c912031f88662156,
@@ -1321,6 +1334,9 @@ MonoBehaviour:
   - But you know...
   - '... sometimes the only way to be successful '
   - is fight!
+  - Press W, A, S, D to move
+  - Press Space to shoot
+  - Don't let the enemies hit you
   - '-'
   button: {fileID: 1740172386}
 --- !u!4 &1664022888
@@ -1986,6 +2002,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2049505426}
   - component: {fileID: 2049505425}
+  - component: {fileID: 2049505427}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -2019,3 +2036,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2049505427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2049505424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6122c8a0acd5c804a90bf478ac873704, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

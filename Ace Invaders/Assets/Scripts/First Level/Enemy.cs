@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public static int damage = 1;
     public int life = 100;
     public GameObject bullet;
-    int counter;
+
     public static bool next;
     bool move;
 
     public void Start()
-    {        
-        InvokeRepeating("FirstMovement", 2f, 1f);
-        InvokeRepeating("Movement", 2f, 1f);
+    {      
+        if(Manager.inGame)  
+        {
+            InvokeRepeating("FirstMovement", 2f, 1f);
+            InvokeRepeating("Movement", 2f, 1f);
+        }
     }
 
     float speed = 0.2f;
@@ -71,12 +75,6 @@ public class Enemy : MonoBehaviour
             if (life <= 0)
             {
                 Destroy(gameObject);
-                counter++;
-
-                if (counter == 3)
-                    next = true;
-
-                Debug.Log(counter);
             }
         }
     }

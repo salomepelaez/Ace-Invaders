@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    public static int damage = 1;
     int counter = 0;
     
     public bool move;
@@ -22,7 +23,6 @@ public class EnemyController : MonoBehaviour
 
         if (gameObject.transform.position.z <= 4f)
             move = true;
-            Debug.Log(move);
     }
 
     void Movement()
@@ -84,7 +84,11 @@ public class EnemyController : MonoBehaviour
 public class Enemy1 : EnemyController
 {
     //blabla
-    
+    void Awake()
+    {
+        transform.tag = "Enemy";
+    }
+
     private void Start()
     {
         speed = 1f;
@@ -105,11 +109,15 @@ public class Enemy1 : EnemyController
     {
         transform.position -= transform.forward * speed;
     }
-    
 }
 
 public class Enemy2 : EnemyController
 {
+    void Awake()
+    {
+        transform.tag = "Enemy";
+    }
+
     private void Start()
     {        
         speed = 0.2f;
@@ -152,8 +160,5 @@ public class Enemy2 : EnemyController
 
             Destroy(bullet, 3f);
         }
-                       
-        
-
     }
 }
