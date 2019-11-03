@@ -9,7 +9,8 @@ public class EnemyController : MonoBehaviour
     public bool move;
     public static bool next;
 
-    float speed = 0.2f;
+    public float speed;
+    
     Behaviour behaviour;
 
     public GameObject bullet;
@@ -78,9 +79,10 @@ public class EnemyController : MonoBehaviour
 public class Enemy1 : EnemyController
 {
     //blabla
-    float speed1 = 0.5f;
+    
     private void Start()
     {
+        speed = 1f;
         gameObject.GetComponent<Renderer>().material.color = Color.yellow;
         
         if (Messages.goAhead == true)        
@@ -88,18 +90,24 @@ public class Enemy1 : EnemyController
         
     }
 
+    void Update()
+    {
+        if(gameObject != null)
+        Destroy(gameObject, 30f);
+    }
+
     void EnemyMove()
     {
-        transform.position -= transform.forward * speed1;
+        transform.position -= transform.forward * speed;
     }
     
 }
 
 public class Enemy2 : EnemyController
 {
-    //blabla
     private void Start()
-    {
+    {        
+        speed = 0.2f;
         gameObject.GetComponent<Renderer>().material.color = Color.red;
 
         if (Messages.goAhead == true)
@@ -117,16 +125,21 @@ public class Enemy2 : EnemyController
 
     IEnumerator DoDamage()
     {
+        float bulletSpeed = 800f;
+        Vector3 bulletDirection = new Vector3(0, 0, -1);
+
         if (Messages.goAhead == true)
         {
             bullet = GameObject.CreatePrimitive(PrimitiveType.Capsule);
+            //EnemyBulletController ebc = bullet.AddComponent<EnemyBulletController>();
+            Rigidbody rigidbody = bullet.AddComponent<Rigidbody>();
+            rigidbody.AddForce(bulletDirection * bulletSpeed);
 
             bullet.transform.localScale = new Vector3(0.095769f, 0.095769f, 0.095769f);
             bullet.transform.position = transform.position;
 
             bullet.AddComponent<CapsuleCollider>();
-            bullet.GetComponent<CapsuleCollider>().isTrigger = true;
-            bullet.AddComponent<EnemyBulletController>();
+            bullet.GetComponent<CapsuleCollider>().isTrigger = true;            
         }
 
         yield return new WaitForSeconds(2f);
