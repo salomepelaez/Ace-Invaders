@@ -9,7 +9,7 @@ public class Creator : MonoBehaviour
     
     private void Start()
     {                
-        InvokeRepeating("Create", 1f, 3f);
+        InvokeRepeating("Create", 1f, 5f);
     }
     
     void Create()

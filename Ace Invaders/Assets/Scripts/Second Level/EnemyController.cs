@@ -22,34 +22,39 @@ public class EnemyController : MonoBehaviour
 
         if (gameObject.transform.position.z <= 4f)
             move = true;
+            Debug.Log(move);
     }
 
     void Movement()
     {
-        switch (Random.Range(0, 2))
+        if (move == true)
         {
-            case 0:
-                behaviour = Behaviour.Left;
-                break;
-
-            case 1:
-                behaviour = Behaviour.Right;
-                break;
-        }
-                
-        if (behaviour == Behaviour.Left && gameObject.transform.position.x >= -6f)
-        {
-            gameObject.transform.position -= transform.right * speed;
-        }
-
-        else if (behaviour == Behaviour.Right && gameObject.transform.position.x <= 6)
-        {
-            gameObject.transform.position += transform.right * speed;
-
-            if (gameObject.transform.position.x >= 8.17)
+            switch (Random.Range(0, 2))
             {
-                behaviour = Behaviour.Left;
+                case 0:
+                    behaviour = Behaviour.Left;
+                    break;
+
+                case 1:
+                    behaviour = Behaviour.Right;
+                    break;
             }
+                    
+            if (behaviour == Behaviour.Left && gameObject.transform.position.x >= -6f)
+            {
+                gameObject.transform.position -= transform.right * speed;
+            }
+
+            else if (behaviour == Behaviour.Right && gameObject.transform.position.x <= 6)
+            {
+                gameObject.transform.position += transform.right * speed;
+
+                if (gameObject.transform.position.x >= 8.17)
+                {
+                    behaviour = Behaviour.Left;
+                }
+            }
+            
         }
         
     }
@@ -114,34 +119,41 @@ public class Enemy2 : EnemyController
             InvokeRepeating("FirstMovement", 2f, 1f);
 
         if (Messages.goAhead == true)
-        {
-            if (move == true)
-                InvokeRepeating("Movement", 2f, 1f);
+        {            
+            InvokeRepeating("Movement", 2f, 1f);
         }
 
         if (Messages.goAhead == true)
-            StartCoroutine("DoDamage");
+        {            
+            InvokeRepeating("DoDamage", 3f, 1f);
+        }
     }
 
-    IEnumerator DoDamage()
+    void DoDamage()
     {
         float bulletSpeed = 800f;
-        Vector3 bulletDirection = new Vector3(0, 0, -1);
+        
+        Vector3 bulletDirection = new Vector3(0, 0.5f, -1);
+        Vector3 bulletRotation = new Vector3(90, 0, 0);
 
-        if (Messages.goAhead == true)
+        
+        if(move == true)
         {
             bullet = GameObject.CreatePrimitive(PrimitiveType.Capsule);
-            //EnemyBulletController ebc = bullet.AddComponent<EnemyBulletController>();
-            Rigidbody rigidbody = bullet.AddComponent<Rigidbody>();
+            bullet.transform.position = transform.position;
+            bullet.transform.Rotate(bulletRotation);
+            Rigidbody rigidbody = bullet.AddComponent<Rigidbody>();            
             rigidbody.AddForce(bulletDirection * bulletSpeed);
 
-            bullet.transform.localScale = new Vector3(0.095769f, 0.095769f, 0.095769f);
-            bullet.transform.position = transform.position;
+            bullet.transform.localScale = new Vector3(0.095769f, 0.095769f, 0.095769f);        
 
             bullet.AddComponent<CapsuleCollider>();
-            bullet.GetComponent<CapsuleCollider>().isTrigger = true;            
-        }
+            bullet.GetComponent<CapsuleCollider>().isTrigger = true; 
 
-        yield return new WaitForSeconds(2f);
+            Destroy(bullet, 3f);
+        }
+                       
+        
+
     }
 }
