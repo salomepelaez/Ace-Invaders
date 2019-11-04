@@ -5,10 +5,8 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     public static int damage = 1;
-    int counter = 0;
     
     public bool move;
-    public static bool next;
 
     public float speed;
     
@@ -63,15 +61,12 @@ public class EnemyController : MonoBehaviour
     {
         if (other.transform.tag == "Bullet")
         {
-            counter++;
-            Destroy(gameObject);
-
-            if (counter == 10)
-                Debug.Log("bien");
-
-            next = true;
-
-            Debug.Log(counter);
+            if (other.transform.tag == "Bullet")
+        { 
+            Manager2.counterValue += 10;
+            Destroy(gameObject);    
+            Debug.Log(Manager2.counterValue);        
+        }
         }
     }
        
@@ -94,9 +89,11 @@ public class Enemy1 : EnemyController
         speed = 1f;
         gameObject.GetComponent<Renderer>().material.color = Color.yellow;
         
-        if (Messages.goAhead == true)        
-            InvokeRepeating("EnemyMove", 2f, 1f);
-        
+        if(Manager2.winner == false)
+        {
+            if (Messages.goAhead == true)        
+            InvokeRepeating("EnemyMove", 1f, 1f);        
+        }        
     }
 
     void Update()
@@ -124,16 +121,13 @@ public class Enemy2 : EnemyController
         gameObject.GetComponent<Renderer>().material.color = Color.red;
 
         if (Messages.goAhead == true)
-            InvokeRepeating("FirstMovement", 2f, 1f);
-
-        if (Messages.goAhead == true)
-        {            
-            InvokeRepeating("Movement", 2f, 1f);
-        }
-
-        if (Messages.goAhead == true)
-        {            
-            InvokeRepeating("DoDamage", 3f, 1f);
+        {
+            if(Manager2.winner == false)
+            {
+                InvokeRepeating("FirstMovement", 1f, 1f);
+                InvokeRepeating("Movement", 2f, 1f);
+                InvokeRepeating("DoDamage", 3f, 1f);
+            }
         }
     }
 

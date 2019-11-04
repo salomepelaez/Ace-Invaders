@@ -21,4 +21,9 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene("Game2");
     }
 
+    public void Boss()
+    {
+        SceneManager.LoadScene("Boss");
+    }
+
 }

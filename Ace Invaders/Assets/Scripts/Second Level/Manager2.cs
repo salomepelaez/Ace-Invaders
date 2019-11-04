@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Manager : MonoBehaviour
+public class Manager2 : MonoBehaviour
 {
     public static bool inGame;
     public static bool winner;
@@ -17,7 +17,7 @@ public class Manager : MonoBehaviour
 
     public void Update()
     {
-        if(counterValue == 30)
+        if(counterValue == 100)
         {
             winner = true;
             next.SetActive(true);
