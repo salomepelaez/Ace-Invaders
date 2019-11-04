@@ -18,7 +18,7 @@ public class Menu : MonoBehaviour
 
     public void NextLevel()
     {
-        SceneManager.LoadScene("Game2");
+        SceneManager.LoadScene("Game2");        
     }
 
     public void Boss()
@@ -26,4 +26,21 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene("Boss");
     }
 
+    public void Restart()
+    {
+        SceneManager.LoadScene("Game1");
+    }
+
+    public void Restart2()
+    {
+        SceneManager.LoadScene("Game2");
+
+        if(Manager2.inGame == false)
+            Manager2.inGame = true;
+    }
+
+    public void RestartBoss()
+    {
+        SceneManager.LoadScene("Boss");    
+    }
 }

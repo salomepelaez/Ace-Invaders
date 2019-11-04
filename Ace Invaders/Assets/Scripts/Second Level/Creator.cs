@@ -10,7 +10,8 @@ public class Creator : MonoBehaviour
     bool damage;
 
     private void Start()
-    {                
+    {      
+        if(Manager2.inGame == true)          
         InvokeRepeating("Create", 1f, 6f);
     }
     

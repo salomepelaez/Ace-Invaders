@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Manager2 : MonoBehaviour
 {
-    public static bool inGame;
+    public static bool inGame = true;
     public static bool winner;
     public static int counterValue = 0;
     public GameObject next;

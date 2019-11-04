@@ -15,46 +15,50 @@ public class EnemyController : MonoBehaviour
     public GameObject bullet;
     
     void FirstMovement()
-    {        
-        if (gameObject.transform.position.z >= 4f)
-            transform.position -= transform.forward * speed;
+    {    
+        if(Manager2.inGame == true)
+        {    
+            if (gameObject.transform.position.z >= 4f)
+                transform.position -= transform.forward * speed;
 
-        if (gameObject.transform.position.z <= 4f)
-            move = true;
+            if (gameObject.transform.position.z <= 4f)
+                move = true;
+        }
     }
 
     void Movement()
     {
-        if (move == true)
+        if(Manager2.inGame == true)
         {
-            switch (Random.Range(0, 2))
+            if (move == true)
             {
-                case 0:
-                    behaviour = Behaviour.Left;
-                    break;
-
-                case 1:
-                    behaviour = Behaviour.Right;
-                    break;
-            }
-                    
-            if (behaviour == Behaviour.Left && gameObject.transform.position.x >= -6f)
-            {
-                gameObject.transform.position -= transform.right * speed;
-            }
-
-            else if (behaviour == Behaviour.Right && gameObject.transform.position.x <= 6)
-            {
-                gameObject.transform.position += transform.right * speed;
-
-                if (gameObject.transform.position.x >= 8.17)
+                switch (Random.Range(0, 2))
                 {
-                    behaviour = Behaviour.Left;
+                    case 0:
+                        behaviour = Behaviour.Left;
+                        break;
+
+                    case 1:
+                        behaviour = Behaviour.Right;
+                        break;
+                }
+                        
+                if (behaviour == Behaviour.Left && gameObject.transform.position.x >= -6f)
+                {
+                    gameObject.transform.position -= transform.right * speed;
+                }
+
+                else if (behaviour == Behaviour.Right && gameObject.transform.position.x <= 6)
+                {
+                    gameObject.transform.position += transform.right * speed;
+
+                    if (gameObject.transform.position.x >= 8.17)
+                    {
+                        behaviour = Behaviour.Left;
+                    }
                 }
             }
-            
-        }
-        
+        }        
     }
 
     public void OnTriggerEnter(Collider other)
@@ -62,11 +66,11 @@ public class EnemyController : MonoBehaviour
         if (other.transform.tag == "Bullet")
         {
             if (other.transform.tag == "Bullet")
-        { 
-            Manager2.counterValue += 10;
-            Destroy(gameObject);    
-            Debug.Log(Manager2.counterValue);        
-        }
+            { 
+                Manager2.counterValue += 10;
+                Destroy(gameObject);    
+                Debug.Log(Manager2.counterValue);        
+            }
         }
     }
        
@@ -89,10 +93,10 @@ public class Enemy1 : EnemyController
         speed = 1f;
         gameObject.GetComponent<Renderer>().material.color = Color.yellow;
         
-        if(Manager2.winner == false)
+        if(Manager2.inGame == true)
         {
             if (Messages.goAhead == true)        
-            InvokeRepeating("EnemyMove", 1f, 1f);        
+                InvokeRepeating("EnemyMove", 1f, 1f);        
         }        
     }
 
@@ -104,7 +108,8 @@ public class Enemy1 : EnemyController
 
     void EnemyMove()
     {
-        transform.position -= transform.forward * speed;
+        if(Manager2.inGame == true)
+            transform.position -= transform.forward * speed;
     }
 }
 
@@ -122,12 +127,11 @@ public class Enemy2 : EnemyController
 
         if (Messages.goAhead == true)
         {
-            if(Manager2.winner == false)
-            {
-                InvokeRepeating("FirstMovement", 1f, 1f);
-                InvokeRepeating("Movement", 2f, 1f);
-                InvokeRepeating("DoDamage", 3f, 1f);
-            }
+        
+            InvokeRepeating("FirstMovement", 1f, 1f);
+            InvokeRepeating("Movement", 2f, 1f);
+            InvokeRepeating("DoDamage", 3f, 1f);
+            
         }
     }
 
