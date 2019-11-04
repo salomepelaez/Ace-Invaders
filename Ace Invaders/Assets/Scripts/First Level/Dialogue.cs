@@ -21,7 +21,7 @@ public class Dialogue : MonoBehaviour
     private void Start()
     {
         First();
-    }
+    }    
 
     public void First()
     {
@@ -56,7 +56,8 @@ public class Dialogue : MonoBehaviour
             button.SetActive(false);  
             intro.text = ""; 
 
-            active = true;                                
+            active = true;
+            Manager.inGame = true;                               
         }        
     }
 

@@ -4,32 +4,16 @@ using UnityEngine;
 
 public class Manager : MonoBehaviour
 {
-    public static bool inGame = true;
+    public static bool inGame;
     public static bool winner;
-    
+    public static int counterValue = 0;
+
     void Update()
     {
-        Counter();
-    }
-
-    void Counter()
-    {     
-        int e = 0;
-           
-        foreach (Enemy enemy in Transform.FindObjectsOfType<Enemy>())
+        if(counterValue == 30)
         {
-            e = e + 1;
-
-            if(e == 1)
-                e = 0;
-
-            if(e == 0)
-            {
-                //inGame = false;
-                winner = true;
-            }
-
-            Debug.Log(e);
+            winner = true;
+            Debug.Log(winner);
         }
     }
 }

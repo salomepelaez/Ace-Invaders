@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    public AudioSource Shoot;
     public GameObject bullet;
     float speed = 800f;
 
@@ -23,8 +24,15 @@ public class Weapon : MonoBehaviour
                 Rigidbody rigidbody = instBullet.GetComponent<Rigidbody>();
                 rigidbody.AddForce(Vector3.forward * speed);
 
+                PlaySound();
+
                 Destroy(instBullet, 5f);
             }
         }        
     }   
+
+    void PlaySound()
+    {
+        Shoot.Play();
+    }
 }

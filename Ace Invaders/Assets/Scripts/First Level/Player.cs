@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    float speed = 0.1f;
+    float speed = 3f;
 
     void Update()
     {
@@ -21,22 +21,22 @@ public class Player : MonoBehaviour
     {      
         if (Input.GetKey(KeyCode.W) && gameObject.transform.position.z <= -72f)
         {
-            transform.position += transform.forward * speed;
+            transform.position += transform.forward * speed *  Time.deltaTime;
         }
 
         if (Input.GetKey(KeyCode.S) && gameObject.transform.position.z >= -80f)
         {
-            transform.position -= transform.forward * speed;
+            transform.position -= transform.forward * speed *  Time.deltaTime;
         }
 
         if (Input.GetKey(KeyCode.D) && gameObject.transform.position.x <= 8.17f)
         {
-            transform.position += transform.right * speed;
+            transform.position += transform.right * speed *  Time.deltaTime;
         }
 
         if (Input.GetKey(KeyCode.A) && gameObject.transform.position.x >= -8.17f)
         {
-            transform.position -= transform.right * speed;
+            transform.position -= transform.right * speed *  Time.deltaTime;
         }
 
         Vector3 pos = new Vector3();

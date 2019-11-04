@@ -6,28 +6,25 @@ public class Enemy : MonoBehaviour
 {
     public static int damage = 1;
     public int life = 100;
-    public GameObject bullet;
 
     public static bool next;
-    bool move;
+    public static bool move;
 
     public void Start()
-    {      
-        if(Manager.inGame)  
-        {
-            InvokeRepeating("FirstMovement", 2f, 1f);
-            InvokeRepeating("Movement", 2f, 1f);
-        }
+    {
+        InvokeRepeating("FirstMovement", 2f, 1f);
+        InvokeRepeating("Movement", 2f, 1f);
+        
     }
 
-    float speed = 0.2f;
+    float speed = 3f;
     Behaviour behaviour;
 
     void FirstMovement()
     {
         if (Dialogue.active == true && gameObject.transform.position.z >= -74f)
         {
-            transform.position -= transform.forward * speed;
+            transform.position -= transform.forward * speed *  Time.deltaTime;
 
             if (gameObject.transform.position.z <= -74f)
                 move = true;
@@ -51,31 +48,33 @@ public class Enemy : MonoBehaviour
         {
             if (behaviour == Behaviour.Left && gameObject.transform.position.x >= -8.17f)
             {
-                gameObject.transform.position -= transform.right * speed;
+                gameObject.transform.position -= transform.right * speed *  Time.deltaTime;
             }
 
             else if (behaviour == Behaviour.Right && gameObject.transform.position.x <= 8.17f)
             {
-                gameObject.transform.position += transform.right * speed;
+                gameObject.transform.position += transform.right * speed *  Time.deltaTime;
 
                 if (gameObject.transform.position.x >= 8.17)
                 {
                     behaviour = Behaviour.Left;
                 }
             }
-        }   
+        }  
+    }
+
+    void Stop()
+    {
+        CancelInvoke();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.tag == "Bullet")
-        {
-            life = life - Bullet.weaponDamage;
-
-            if (life <= 0)
-            {
-                Destroy(gameObject);
-            }
+        { 
+            Manager.counterValue += 10;
+            Destroy(gameObject);    
+            Debug.Log(Manager.counterValue);        
         }
     }
        

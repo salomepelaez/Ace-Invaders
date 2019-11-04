@@ -13,12 +13,7 @@ public class NextLevel : MonoBehaviour
 
     private void Update()
     {
-        FirstLevel();
-    }
-
-    public void FirstLevel()
-    {
-        if (Enemy.next == true)
+        if (Manager.winner == true)
         {
             next.SetActive(true);
         }
