@@ -1,20 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
     float speed = 0.1f;
+    public TextMeshProUGUI lifeCounter;
     
     void Awake()
     {
+        gameObject.layer = 10;
         transform.tag = "Player";
     }
 
     void Update()
     {
-        if (Messages.goAhead == true)        
+        if (Messages.goAhead == true) 
+        {
             Move();
+            lifeCounter.text = "Life: " + life;
+        }       
+            
     }
 
     void Move()
@@ -61,7 +68,7 @@ public class PlayerController : MonoBehaviour
         }
     }    
 
-    int life = 3;
+    public static int life = 3;
     
     public void OnTriggerEnter(Collider other)
     {

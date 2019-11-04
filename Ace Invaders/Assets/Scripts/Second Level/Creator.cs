@@ -19,6 +19,7 @@ public class Creator : MonoBehaviour
         if (Messages.goAhead == true)
         {
             enemy = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            enemy.layer = 9;
             enemy.AddComponent<BoxCollider>();
             enemy.AddComponent<Rigidbody>();
             Vector3 pos = new Vector3();
