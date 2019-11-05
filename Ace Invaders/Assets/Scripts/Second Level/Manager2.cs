@@ -1,27 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Manager2 : MonoBehaviour
 {
     public static bool inGame = true;
     public static bool winner;
     public static int counterValue = 0;
-    public GameObject next;
-
-    void Start()
-    {
-        next.SetActive(false);
-    }
+    public TextMeshProUGUI score;
     
-
     public void Update()
     {
+        score.text = "Score: " + counterValue;
         if(counterValue == 100)
         {
             winner = true;
-            next.SetActive(true);
-            Debug.Log(winner);
+            inGame = false;
+            SceneManager.LoadScene("Boss");
         }
     }
 }

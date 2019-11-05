@@ -7,7 +7,11 @@ public class Player : MonoBehaviour
 {
     public AudioSource key;
     public AudioSource enemyDamage;
+
     public TextMeshProUGUI lifeCounter;
+
+    public static int life = 3;
+
     float speed = 3f;
 
     void Update()
@@ -28,32 +32,33 @@ public class Player : MonoBehaviour
 
     void Move()
     {      
-        if (Input.GetKey(KeyCode.W) && gameObject.transform.position.z <= -72f)
+        if(Manager.inGame == true)
         {
-            transform.position += transform.forward * speed *  Time.deltaTime;
-            key.Play();
-        }
+            if (Input.GetKey(KeyCode.W) && gameObject.transform.position.z <= -72f)
+            {
+                transform.position += transform.forward * speed *  Time.deltaTime;
+                key.Play();
+            }
 
-        if (Input.GetKey(KeyCode.S) && gameObject.transform.position.z >= -80f)
-        {
-            transform.position -= transform.forward * speed *  Time.deltaTime;
-            key.Play();
-        }
+            if (Input.GetKey(KeyCode.S) && gameObject.transform.position.z >= -80f)
+            {
+                transform.position -= transform.forward * speed *  Time.deltaTime;
+                key.Play();
+            }
 
-        if (Input.GetKey(KeyCode.D) && gameObject.transform.position.x <= 8.17f)
-        {
-            transform.position += transform.right * speed *  Time.deltaTime;
-            key.Play();
-        }
+            if (Input.GetKey(KeyCode.D) && gameObject.transform.position.x <= 8.17f)
+            {
+                transform.position += transform.right * speed *  Time.deltaTime;
+                key.Play();
+            }
 
-        if (Input.GetKey(KeyCode.A) && gameObject.transform.position.x >= -8.17f)
-        {
-            transform.position -= transform.right * speed *  Time.deltaTime;
-            key.Play();
+            if (Input.GetKey(KeyCode.A) && gameObject.transform.position.x >= -8.17f)
+            {
+                transform.position -= transform.right * speed *  Time.deltaTime;
+                key.Play();
+            }
         }
     }
-
-    int life = 3;
     
     public void OnTriggerEnter(Collider other)
     {

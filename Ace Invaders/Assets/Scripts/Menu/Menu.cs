@@ -20,12 +20,7 @@ public class Menu : MonoBehaviour
     {
         SceneManager.LoadScene("Game2");        
     }
-
-    public void Boss()
-    {
-        SceneManager.LoadScene("Boss");
-    }
-
+    
     public void Restart()
     {
         SceneManager.LoadScene("Game1");

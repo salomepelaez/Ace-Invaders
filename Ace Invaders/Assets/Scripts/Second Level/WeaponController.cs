@@ -24,10 +24,10 @@ public class WeaponController : MonoBehaviour
                 Rigidbody rigidbody = instBullet.GetComponent<Rigidbody>();
                 rigidbody.AddForce(Vector3.forward * speed);
 
-                shoot.Play();
-
                 Destroy(instBullet, 1f);
+                shoot.Play();
             }
         }
+        
     }   
 }

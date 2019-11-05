@@ -8,7 +8,10 @@ public class BulletController : MonoBehaviour
     {
         if (other.transform.tag == "Enemy")
         {
-            Destroy(this.gameObject);   
+            Destroy(this.gameObject);
         }
+
+        if(gameObject.transform.position.z >= 9f)
+            Destroy(this.gameObject);
     }
 }

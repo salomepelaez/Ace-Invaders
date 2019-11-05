@@ -21,7 +21,7 @@ public class Manager : MonoBehaviour
         {
             winner = true;
             next.SetActive(true);
-            Debug.Log(winner);
+            inGame = false;
         }
     }
 }

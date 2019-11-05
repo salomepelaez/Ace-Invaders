@@ -10,7 +10,7 @@ public class EnemyController : MonoBehaviour
     
     Behaviour behaviour;
 
-    public GameObject bullet;
+    //public GameObject bullet;
 
     void Movement()
     {
