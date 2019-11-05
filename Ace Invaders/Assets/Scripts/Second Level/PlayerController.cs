@@ -8,11 +8,15 @@ public class PlayerController : MonoBehaviour
     float speed = 0.1f;
     public TextMeshProUGUI lifeCounter;
     public static int life;
+
+    public AudioSource key;
+    public AudioSource enemyDamage;
     
     void Start()
     {
         life = 3;
     }
+
     void Awake()
     {
         gameObject.layer = 10;
@@ -39,51 +43,34 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKey(KeyCode.W) && gameObject.transform.position.z <= 8f)
             {
                 transform.position += transform.forward * speed;
+                key.Play();
             }
 
             if (Input.GetKey(KeyCode.S) && gameObject.transform.position.z >= -0.4f)
             {
                 transform.position -= transform.forward * speed;
+                key.Play();
             }
 
             if (Input.GetKey(KeyCode.D) && gameObject.transform.position.x <= 6f)
             {
                 transform.position += transform.right * speed;
+                key.Play();
             }
 
             if (Input.GetKey(KeyCode.A) && gameObject.transform.position.x >= -6f)
             {
                 transform.position -= transform.right * speed;
+                key.Play();
             }
-
-            Vector3 pos = new Vector3();
-            if (pos.x >= -8.17f)
-            {
-                pos.x = -8.17f;
-            }
-
-            else if (pos.x >= 8.17f)
-            {
-                pos.x = 8.17f;
-            }
-
-            else if (pos.z >= -88.3)
-            {
-                pos.z = -88.3f;
-            }
-
-            else if (pos.z >= 88.3)
-            {
-                pos.z = 88.3f;
-            }
-        }  
-        
+        }
     }    
     
     public void OnTriggerEnter(Collider other)
     {
         if (other.transform.tag == "Enemy")
         {
+            enemyDamage.Play();
             life = life - EnemyController.damage;
             
             if(life <= 0)

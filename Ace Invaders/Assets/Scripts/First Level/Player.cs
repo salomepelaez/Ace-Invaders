@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public AudioSource key;
+    public AudioSource enemyDamage;
     float speed = 3f;
 
     void Update()
@@ -22,52 +24,25 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.W) && gameObject.transform.position.z <= -72f)
         {
             transform.position += transform.forward * speed *  Time.deltaTime;
+            key.Play();
         }
 
         if (Input.GetKey(KeyCode.S) && gameObject.transform.position.z >= -80f)
         {
             transform.position -= transform.forward * speed *  Time.deltaTime;
+            key.Play();
         }
 
         if (Input.GetKey(KeyCode.D) && gameObject.transform.position.x <= 8.17f)
         {
             transform.position += transform.right * speed *  Time.deltaTime;
+            key.Play();
         }
 
         if (Input.GetKey(KeyCode.A) && gameObject.transform.position.x >= -8.17f)
         {
             transform.position -= transform.right * speed *  Time.deltaTime;
-        }
-
-        Vector3 pos = new Vector3();
-        if (pos.x >= -8.17f)
-        {
-            pos.x = -8.17f;
-        }
-
-        else if (pos.x >= 8.17f)
-        {
-            pos.x = 8.17f;
-        }
-
-        else if (pos.y > -3)
-        {
-            pos.y = -3;
-        }
-
-        else if (pos.y > 5)
-        {
-            pos.y = 5;
-        }
-
-        else if (pos.z >= -88.3)
-        {
-            pos.z = -88.3f;
-        }
-
-        else if (pos.z >= 88.3)
-        {
-            pos.z = 88.3f;
+            key.Play();
         }
     }
 
@@ -77,6 +52,7 @@ public class Player : MonoBehaviour
     {
         if (other.transform.tag == "Enemy")
         {
+            enemyDamage.Play();
             life = life - Enemy.damage;
             Debug.Log(life);
 

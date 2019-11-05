@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
+    public AudioSource shoot;
     public GameObject bullet;
     float speed = 800f;
 
@@ -12,7 +13,7 @@ public class WeaponController : MonoBehaviour
         transform.tag = "Bullet";
     }
 
-    void Update()
+    public void Update()
     {
         if (Messages.goAhead == true)  
         {
@@ -23,7 +24,9 @@ public class WeaponController : MonoBehaviour
                 Rigidbody rigidbody = instBullet.GetComponent<Rigidbody>();
                 rigidbody.AddForce(Vector3.forward * speed);
 
-                Destroy(instBullet, 3f);
+                shoot.Play();
+
+                Destroy(instBullet, 1f);
             }
         }
     }   

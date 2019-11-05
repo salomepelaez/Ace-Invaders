@@ -6,58 +6,42 @@ public class EnemyController : MonoBehaviour
 {
     public static int damage = 1;
     
-    public bool move;
-
     public float speed;
     
     Behaviour behaviour;
 
     public GameObject bullet;
-    
-    void FirstMovement()
-    {    
-        if(Manager2.inGame == true)
-        {    
-            if (gameObject.transform.position.z >= 4f)
-                transform.position -= transform.forward * speed;
-
-            if (gameObject.transform.position.z <= 4f)
-                move = true;
-        }
-    }
 
     void Movement()
     {
         if(Manager2.inGame == true)
         {
-            if (move == true)
+            switch (Random.Range(0, 2))
             {
-                switch (Random.Range(0, 2))
-                {
-                    case 0:
-                        behaviour = Behaviour.Left;
-                        break;
+                case 0:
+                    behaviour = Behaviour.Left;
+                    break;
 
-                    case 1:
-                        behaviour = Behaviour.Right;
-                        break;
-                }
-                        
-                if (behaviour == Behaviour.Left && gameObject.transform.position.x >= -6f)
-                {
-                    gameObject.transform.position -= transform.right * speed;
-                }
+                case 1:
+                    behaviour = Behaviour.Right;
+                    break;
+            }
+                    
+            if (behaviour == Behaviour.Left && gameObject.transform.position.x >= -6f)
+            {
+                gameObject.transform.position -= transform.right * speed;
+            }
 
-                else if (behaviour == Behaviour.Right && gameObject.transform.position.x <= 6)
-                {
-                    gameObject.transform.position += transform.right * speed;
+            else if (behaviour == Behaviour.Right && gameObject.transform.position.x <= 6)
+            {
+                gameObject.transform.position += transform.right * speed;
 
-                    if (gameObject.transform.position.x >= 8.17)
-                    {
-                        behaviour = Behaviour.Left;
-                    }
+                if (gameObject.transform.position.x >= 8.17)
+                {
+                    behaviour = Behaviour.Left;
                 }
             }
+        
         }        
     }
 
@@ -117,35 +101,31 @@ public class Enemy2 : EnemyController
 {
     void Awake()
     {
-        transform.tag = "Enemy";
+        transform.tag = "Enemy";        
     }
 
     private void Start()
     {        
-        speed = 0.2f;
+        speed = 0.8f;
         gameObject.GetComponent<Renderer>().material.color = Color.red;
 
         if (Messages.goAhead == true)
-        {
-        
-            InvokeRepeating("FirstMovement", 1f, 1f);
-            InvokeRepeating("Movement", 2f, 1f);
-            InvokeRepeating("DoDamage", 3f, 1f);
-            
+        {        
+            InvokeRepeating("Movement", 1f, 1f);            
         }
     }
 
-    void DoDamage()
+    /*void DoDamage()
     {
-        float bulletSpeed = 800f;
-        
-        Vector3 bulletDirection = new Vector3(0, 0.5f, -1);
-        Vector3 bulletRotation = new Vector3(90, 0, 0);
-
-        
-        if(move == true)
+        if(Manager2.inGame == true)
         {
-            bullet = GameObject.CreatePrimitive(PrimitiveType.Capsule);
+            float bulletSpeed = 800f;
+            
+            Vector3 bulletDirection = new Vector3(0, 0, -1);
+            Vector3 bulletRotation = new Vector3(90, 0, 0);
+
+            bullet = GameObject.CreatePrimitive(PrimitiveType.Capsule);  
+            bullet.transform.tag = "EnemyBullet";          
             bullet.transform.position = transform.position;
             bullet.transform.Rotate(bulletRotation);
             Rigidbody rigidbody = bullet.AddComponent<Rigidbody>();            
@@ -158,5 +138,5 @@ public class Enemy2 : EnemyController
 
             Destroy(bullet, 3f);
         }
-    }
+    }*/
 }
