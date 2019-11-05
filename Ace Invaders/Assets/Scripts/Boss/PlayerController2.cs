@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController2 : MonoBehaviour
 {
     float speed = 0.1f;
     public TextMeshProUGUI lifeCounter;
     public static int life;
+    public static int playerDamage;
 
     public AudioSource key;
     public AudioSource enemyDamage;
@@ -25,41 +26,39 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Messages.goAhead == true) 
-        {
-            Move();            
-        }       
+        Move();            
+          
 
         lifeCounter.text = "Life: " + life;
 
-            if(life <= 0)
-                lifeCounter.text = "";
+        if(life <= 0)
+            lifeCounter.text = "";
             
     }
 
     void Move()
     {    
-        if(Manager2.inGame == true)
+        if(Manager3.inGame == true)
         {
-            if (Input.GetKey(KeyCode.W) && gameObject.transform.position.z <= 8f)
+            if (Input.GetKey(KeyCode.W) && gameObject.transform.position.z <= -8f)
             {
                 transform.position += transform.forward * speed;
                 key.Play();
             }
 
-            if (Input.GetKey(KeyCode.S) && gameObject.transform.position.z >= -0.4f)
+            if (Input.GetKey(KeyCode.S) && gameObject.transform.position.z <= -14f)
             {
                 transform.position -= transform.forward * speed;
                 key.Play();
             }
 
-            if (Input.GetKey(KeyCode.D) && gameObject.transform.position.x <= 6f)
+            if (Input.GetKey(KeyCode.D) && gameObject.transform.position.x >= -6.5)
             {
                 transform.position += transform.right * speed;
                 key.Play();
             }
 
-            if (Input.GetKey(KeyCode.A) && gameObject.transform.position.x >= -6f)
+            if (Input.GetKey(KeyCode.A) && gameObject.transform.position.x <= -10f)
             {
                 transform.position -= transform.right * speed;
                 key.Play();
@@ -75,7 +74,7 @@ public class PlayerController : MonoBehaviour
             life = life - EnemyController.damage;
             
             if(life <= 0)
-                Manager2.inGame = false;
+                Manager3.inGame = false;
         }
 
         if (other.transform.tag == "BossBullet")

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7909270749654399279}
   - component: {fileID: 4646183666326993524}
   - component: {fileID: 6254818278904015594}
+  - component: {fileID: 8706906725065891035}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Bullet
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 3920477820470278030}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0.5803683, y: 1.7480645, z: -80.177}
-  m_LocalScale: {x: 0.095769, y: 0.095769, z: 0.095769}
+  m_LocalScale: {x: 0.16300842, y: 0.16300842, z: 0.16300842}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -122,4 +123,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fc4cfe4eab4917409431c37a4c7fa42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shoot: {fileID: 0}
   bullet: {fileID: 3920477820470278030}
+--- !u!114 &8706906725065891035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3920477820470278030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30227a744a8e29041bd8cc5f31c7d9ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

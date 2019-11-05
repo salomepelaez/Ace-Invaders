@@ -114,29 +114,4 @@ public class Enemy2 : EnemyController
             InvokeRepeating("Movement", 1f, 1f);            
         }
     }
-
-    /*void DoDamage()
-    {
-        if(Manager2.inGame == true)
-        {
-            float bulletSpeed = 800f;
-            
-            Vector3 bulletDirection = new Vector3(0, 0, -1);
-            Vector3 bulletRotation = new Vector3(90, 0, 0);
-
-            bullet = GameObject.CreatePrimitive(PrimitiveType.Capsule);  
-            bullet.transform.tag = "EnemyBullet";          
-            bullet.transform.position = transform.position;
-            bullet.transform.Rotate(bulletRotation);
-            Rigidbody rigidbody = bullet.AddComponent<Rigidbody>();            
-            rigidbody.AddForce(bulletDirection * bulletSpeed);
-
-            bullet.transform.localScale = new Vector3(0.095769f, 0.095769f, 0.095769f);        
-
-            bullet.AddComponent<CapsuleCollider>();
-            bullet.GetComponent<CapsuleCollider>().isTrigger = true; 
-
-            Destroy(bullet, 3f);
-        }
-    }*/
 }
