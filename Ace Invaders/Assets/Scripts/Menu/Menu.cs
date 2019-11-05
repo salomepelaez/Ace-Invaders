@@ -29,6 +29,9 @@ public class Menu : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene("Game1");
+
+        if(Manager.inGame == false)
+            Manager.inGame = true;
     }
 
     public void Restart2()

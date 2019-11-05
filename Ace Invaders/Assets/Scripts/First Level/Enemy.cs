@@ -12,9 +12,10 @@ public class Enemy : MonoBehaviour
 
     public void Start()
     {
+    
         InvokeRepeating("FirstMovement", 2f, 1f);
         InvokeRepeating("Movement", 2f, 1f);
-        
+    
     }
 
     float speed = 3f;
@@ -22,52 +23,53 @@ public class Enemy : MonoBehaviour
 
     void FirstMovement()
     {
-        if (Dialogue.active == true && gameObject.transform.position.z >= -74f)
+        if(Manager.inGame == true)
         {
-            transform.position -= transform.forward * speed *  Time.deltaTime;
+            if (Dialogue.active == true && gameObject.transform.position.z >= -74f)
+            {
+                transform.position -= transform.forward * speed *  Time.deltaTime;
 
-            if (gameObject.transform.position.z <= -74f)
-                move = true;
+                if (gameObject.transform.position.z <= -74f)
+                    move = true;
+            }
         }
     }
 
     void Movement()
-    {        
-        switch (Random.Range(0, 2))
-        {
-            case 0:
-                behaviour = Behaviour.Left;
-                break;
-
-            case 1:
-                behaviour = Behaviour.Right;
-                break;
-        }
-
-        if(move == true)
-        {
-            if (behaviour == Behaviour.Left && gameObject.transform.position.x >= -8.17f)
+    {       
+        if(Manager.inGame == true)
+        { 
+            switch (Random.Range(0, 2))
             {
-                gameObject.transform.position -= transform.right * speed *  Time.deltaTime;
-            }
-
-            else if (behaviour == Behaviour.Right && gameObject.transform.position.x <= 8.17f)
-            {
-                gameObject.transform.position += transform.right * speed *  Time.deltaTime;
-
-                if (gameObject.transform.position.x >= 8.17)
-                {
+                case 0:
                     behaviour = Behaviour.Left;
-                }
+                    break;
+
+                case 1:
+                    behaviour = Behaviour.Right;
+                    break;
             }
-        }  
-    }
 
-    void Stop()
-    {
-        CancelInvoke();
-    }
+            if(move == true)
+            {
+                if (behaviour == Behaviour.Left && gameObject.transform.position.x >= -8.17f)
+                {
+                    gameObject.transform.position -= transform.right * speed *  Time.deltaTime;
+                }
 
+                else if (behaviour == Behaviour.Right && gameObject.transform.position.x <= 8.17f)
+                {
+                    gameObject.transform.position += transform.right * speed *  Time.deltaTime;
+
+                    if (gameObject.transform.position.x >= 8.17)
+                    {
+                        behaviour = Behaviour.Left;
+                    }
+                }
+            }  
+        }
+    }
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.tag == "Bullet")

@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
     public AudioSource key;
     public AudioSource enemyDamage;
+    public TextMeshProUGUI lifeCounter;
     float speed = 3f;
 
     void Update()
@@ -16,6 +18,11 @@ public class Player : MonoBehaviour
             {
                 Move();
             }
+
+            lifeCounter.text = "Life: " + life;
+
+            if(life <= 0)
+                lifeCounter.text = "";
         }        
     }
 
