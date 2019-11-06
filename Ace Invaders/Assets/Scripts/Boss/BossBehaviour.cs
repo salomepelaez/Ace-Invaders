@@ -7,7 +7,7 @@ public class BossBehaviour : MonoBehaviour
     public static int damage = 1;
     public static int bossLife = 10;
     
-    public float speed;
+    public static float speed;
     
     Behaviour behaviour;
 
@@ -72,7 +72,11 @@ public class BossBehaviour : MonoBehaviour
             { 
                 Manager3.counterValue += 10;
                 
-                bossLife = bossLife - PlayerController2.playerDamage;  
+                bossLife = bossLife - PlayerController2.playerDamage; 
+
+                if(bossLife <= 0)
+                    Manager3.inGame = false;
+
                 Debug.Log(bossLife);      
             }
         }

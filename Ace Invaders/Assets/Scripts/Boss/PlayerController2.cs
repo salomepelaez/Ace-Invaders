@@ -8,13 +8,18 @@ public class PlayerController2 : MonoBehaviour
     float speed = 0.1f;
     public TextMeshProUGUI lifeCounter;
     public static int life;
-    public static int playerDamage;
+    public static int playerDamage = 1;
 
+    public AudioSource music;
     public AudioSource key;
     public AudioSource enemyDamage;
+    public AudioSource loss;
+    public AudioSource gameOver;
+    public AudioSource sadMusic;
     
     void Start()
     {
+        music.Play();
         life = 3;
     }
 
@@ -80,10 +85,17 @@ public class PlayerController2 : MonoBehaviour
         if (other.transform.tag == "BossBullet")
         {
             enemyDamage.Play();
-            life = life - BossBehaviour.damage;
+            life = life - BossBullet.bossBulletDamage;
             
             if(life <= 0)
+            {
                 Manager3.inGame = false;
+                music.Stop();
+                loss.Play();
+                gameOver.Play();
+                sadMusic.Play();
+
+            }
         }
     }
 }
