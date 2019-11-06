@@ -43,19 +43,19 @@ public class BossBehaviour : MonoBehaviour
                     
             if (behaviour == Behaviour.Left && gameObject.transform.position.x >= -6f)
             {
-                gameObject.transform.position += transform.right * speed;
+                gameObject.transform.position -= transform.right * speed;
 
-                if (gameObject.transform.position.x <= -6)
+                if (gameObject.transform.position.x <= -6f)
                 {
                     behaviour = Behaviour.Right;
                 }
             }
 
-            else if (behaviour == Behaviour.Right && gameObject.transform.position.x <= 10)
+            else if (behaviour == Behaviour.Right && gameObject.transform.position.x <= 10f)
             {
-                gameObject.transform.position -= transform.right * speed;
+                gameObject.transform.position += transform.right * speed;
 
-                if (gameObject.transform.position.x >= 10)
+                if (gameObject.transform.position.x >= 10f)
                 {
                     behaviour = Behaviour.Left;
                 }

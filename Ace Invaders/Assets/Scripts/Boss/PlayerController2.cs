@@ -46,19 +46,19 @@ public class PlayerController2 : MonoBehaviour
                 key.Play();
             }
 
-            if (Input.GetKey(KeyCode.S) && gameObject.transform.position.z <= -14f)
+            if (Input.GetKey(KeyCode.S) && gameObject.transform.position.z >= -14f)
             {
                 transform.position -= transform.forward * speed;
                 key.Play();
             }
 
-            if (Input.GetKey(KeyCode.D) && gameObject.transform.position.x >= -6.5)
+            if (Input.GetKey(KeyCode.D) && gameObject.transform.position.x <= 10)
             {
                 transform.position += transform.right * speed;
                 key.Play();
             }
 
-            if (Input.GetKey(KeyCode.A) && gameObject.transform.position.x <= -10f)
+            if (Input.GetKey(KeyCode.A) && gameObject.transform.position.x >= -6.5f)
             {
                 transform.position -= transform.right * speed;
                 key.Play();
