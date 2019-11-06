@@ -6,11 +6,9 @@ public class EnemyController : MonoBehaviour
 {
     public static int damage = 1;
     
-    public float speed;
+    public static float speed = 1f;
     
     Behaviour behaviour;
-
-    //public GameObject bullet;
 
     void Movement()
     {
@@ -74,7 +72,6 @@ public class Enemy1 : EnemyController
 
     private void Start()
     {
-        speed = 1f;
         gameObject.GetComponent<Renderer>().material.color = Color.yellow;
         
         if(Manager2.inGame == true)
@@ -105,8 +102,7 @@ public class Enemy2 : EnemyController
     }
 
     private void Start()
-    {        
-        speed = 0.8f;
+    { 
         gameObject.GetComponent<Renderer>().material.color = Color.red;
 
         if (Messages.goAhead == true)

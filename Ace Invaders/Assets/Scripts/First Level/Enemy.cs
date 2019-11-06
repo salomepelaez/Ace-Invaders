@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
     
     }
 
-    float speed = 3f;
+    public static float speed = 3f;
     Behaviour behaviour;
 
     void FirstMovement()

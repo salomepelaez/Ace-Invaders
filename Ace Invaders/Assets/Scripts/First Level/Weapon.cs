@@ -28,11 +28,25 @@ public class Weapon : MonoBehaviour
 
                 Destroy(instBullet, 5f);
             }
+
+            if(Input.GetKeyDown(KeyCode.F))
+            {
+                StartCoroutine("GoSlow");
+            }
         }        
     }   
 
     void PlaySound()
     {
         Shoot.Play();
+    }
+
+    IEnumerator GoSlow()
+    {
+        Enemy.speed = 0;
+
+        yield return new WaitForSeconds(3f);
+
+        Enemy.speed = 3f;
     }
 }

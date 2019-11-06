@@ -2486,6 +2486,7 @@ MonoBehaviour:
   - is fight!
   - Press W, A, S, D to move
   - Press Space to shoot
+  - Press F to freeze enemies temporarily.
   - Don't let the enemies hit you
   - '-'
   button: {fileID: 1740172386}

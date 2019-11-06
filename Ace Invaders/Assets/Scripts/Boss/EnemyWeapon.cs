@@ -20,17 +20,20 @@ public class EnemyWeapon : MonoBehaviour
 
     public void DoDamage()
     {
-        Vector3 bulletDirection = new Vector3(0, 0, -1);
-        GameObject instBullet = Instantiate(bullet, transform.position, Quaternion.identity) as GameObject;
-        instBullet.transform.Rotate(Vector3.left * 90);
-        Rigidbody rigidbody = instBullet.GetComponent<Rigidbody>();
-        rigidbody.AddForce(bulletDirection * speed);
+        if(Manager3.inGame == true)
+        {
+            Vector3 bulletDirection = new Vector3(0, 0, -1);
+            GameObject instBullet = Instantiate(bullet, transform.position, Quaternion.identity) as GameObject;
+            instBullet.transform.Rotate(Vector3.left * 90);
+            Rigidbody rigidbody = instBullet.GetComponent<Rigidbody>();
+            rigidbody.AddForce(bulletDirection * speed);
 
-        instBullet.AddComponent<CapsuleCollider>();
-        instBullet.GetComponent<CapsuleCollider>().isTrigger = true;
+            instBullet.AddComponent<CapsuleCollider>();
+            instBullet.GetComponent<CapsuleCollider>().isTrigger = true;
 
-        Destroy(instBullet, 1f);
-        shoot.Play();
+            Destroy(instBullet, 1f);
+            shoot.Play();
+        }       
             
     }
 }

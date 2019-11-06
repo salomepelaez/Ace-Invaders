@@ -26,6 +26,20 @@ public class Weapon3 : MonoBehaviour
             shoot.Play();
             
         }
+
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            StartCoroutine("GoSlow");
+        }
         
     }   
+
+    IEnumerator GoSlow()
+    {
+        BossBehaviour.speed = 0;
+
+        yield return new WaitForSeconds(3f);
+
+        BossBehaviour.speed = 2f;
+    }
 }

@@ -28,6 +28,20 @@ public class WeaponController : MonoBehaviour
                 shoot.Play();
             }
         }
+
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            StartCoroutine("GoSlow");
+        }
         
-    }   
+    } 
+
+    IEnumerator GoSlow()
+    {
+        EnemyController.speed = 0;
+
+        yield return new WaitForSeconds(3f);
+
+        EnemyController.speed = 1f;
+    }  
 }
