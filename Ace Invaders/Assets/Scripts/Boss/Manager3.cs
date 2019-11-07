@@ -5,17 +5,20 @@ using TMPro;
 
 public class Manager3 : MonoBehaviour
 {
-    public static bool inGame = true;
+    public static bool inGame;
     public static bool winner;
     public static int counterValue = 0;
     public TextMeshProUGUI score;
-    public TextMeshProUGUI gameOver;
-    
+    public TextMeshProUGUI winnerText;
+
     public void Update()
     {
+        if (FinalDialogue.active == true)
+            inGame = true;
+
         score.text = "Score: " + counterValue;
 
-        if(inGame == false)
-            gameOver.text = "GAME OVER";
+        if (winner == true)
+            winnerText.text = "Winner";
     }
 }

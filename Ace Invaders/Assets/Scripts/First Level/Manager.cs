@@ -13,7 +13,6 @@ public class Manager : MonoBehaviour
     {
         next.SetActive(false);
     }
-    
 
     public void Update()
     {

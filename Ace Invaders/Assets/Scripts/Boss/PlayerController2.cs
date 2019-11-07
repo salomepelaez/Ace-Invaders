@@ -5,8 +5,13 @@ using TMPro;
 
 public class PlayerController2 : MonoBehaviour
 {
+    public GameObject player;
+
     float speed = 0.1f;
+
     public TextMeshProUGUI lifeCounter;
+    public TextMeshProUGUI gameOverText;
+
     public static int life;
     public static int playerDamage = 1;
 
@@ -31,13 +36,17 @@ public class PlayerController2 : MonoBehaviour
 
     void Update()
     {
-        Move();            
-          
+        Move();       
 
         lifeCounter.text = "Life: " + life;
 
         if(life <= 0)
             lifeCounter.text = "";
+
+        if(Manager3.winner == true)
+        {
+            Destroy(player);
+        }
             
     }
 
@@ -77,9 +86,12 @@ public class PlayerController2 : MonoBehaviour
         {
             enemyDamage.Play();
             life = life - EnemyController.damage;
-            
-            if(life <= 0)
+
+            if (life <= 0)
+            {
                 Manager3.inGame = false;
+                gameOverText.text = "GAME OVER";
+            }
         }
 
         if (other.transform.tag == "BossBullet")
@@ -90,11 +102,12 @@ public class PlayerController2 : MonoBehaviour
             if(life <= 0)
             {
                 Manager3.inGame = false;
+                gameOverText.text = "GAME OVER";
                 music.Stop();
                 loss.Play();
                 gameOver.Play();
                 sadMusic.Play();
-
+                Destroy(player);
             }
         }
     }

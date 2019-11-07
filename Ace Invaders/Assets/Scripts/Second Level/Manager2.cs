@@ -14,7 +14,7 @@ public class Manager2 : MonoBehaviour
     public void Update()
     {
         score.text = "Score: " + counterValue;
-        if(counterValue == 100)
+        if(counterValue == 1000)
         {
             winner = true;
             inGame = false;

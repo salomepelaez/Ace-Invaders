@@ -39,6 +39,11 @@ public class Menu : MonoBehaviour
 
     public void RestartBoss()
     {
-        SceneManager.LoadScene("Boss");    
+        SceneManager.LoadScene("Boss");
+        if (Manager3.inGame == false)
+        {
+            Manager3.inGame = true;
+            Manager3.winner = false;
+        }
     }
 }

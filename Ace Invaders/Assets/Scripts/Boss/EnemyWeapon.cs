@@ -15,7 +15,7 @@ public class EnemyWeapon : MonoBehaviour
 
     void Start()
     {
-        InvokeRepeating("DoDamage", 2f, 3f);
+        InvokeRepeating("DoDamage", 2f, 2f);
     }
 
     public void DoDamage()

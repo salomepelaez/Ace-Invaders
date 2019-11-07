@@ -22,8 +22,7 @@ public class BossBehaviour : MonoBehaviour
     {        
         speed = 2f;
       
-        InvokeRepeating("Movement", 1f, 1f);                    
-        
+        InvokeRepeating("Movement", 1f, 1f);    
     }
 
     void Movement()
@@ -41,26 +40,25 @@ public class BossBehaviour : MonoBehaviour
                     break;
             }
                     
-            if (behaviour == Behaviour.Left && gameObject.transform.position.x >= -6f)
+            if (behaviour == Behaviour.Left && gameObject.transform.position.x >= -5.5f)
             {
                 gameObject.transform.position -= transform.right * speed;
 
-                if (gameObject.transform.position.x <= -6f)
+                if (gameObject.transform.position.x <= -5.5f)
                 {
                     behaviour = Behaviour.Right;
                 }
             }
 
-            else if (behaviour == Behaviour.Right && gameObject.transform.position.x <= 10f)
+            else if (behaviour == Behaviour.Right && gameObject.transform.position.x <= 9.8f)
             {
                 gameObject.transform.position += transform.right * speed;
 
-                if (gameObject.transform.position.x >= 10f)
+                if (gameObject.transform.position.x >= 9.8f)
                 {
                     behaviour = Behaviour.Left;
                 }
-            }
-        
+            }        
         }        
     }
 
@@ -70,12 +68,15 @@ public class BossBehaviour : MonoBehaviour
         {
             if (other.transform.tag == "Bullet")
             { 
-                Manager3.counterValue += 10;
+                Manager3.counterValue += 100;
                 
                 bossLife = bossLife - PlayerController2.playerDamage; 
 
                 if(bossLife <= 0)
-                    Manager3.inGame = false;
+                {
+                    Destroy(gameObject);
+                    Manager3.winner = true;                    
+                }
 
                 Debug.Log(bossLife);      
             }
