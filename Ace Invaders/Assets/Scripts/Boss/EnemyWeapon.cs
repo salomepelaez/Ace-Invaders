@@ -15,12 +15,12 @@ public class EnemyWeapon : MonoBehaviour
 
     void Start()
     {
-        InvokeRepeating("DoDamage", 2f, 2f);
+        InvokeRepeating("DoDamage", 5f, 2f);
     }
 
     public void DoDamage()
     {
-        if(Manager3.inGame == true)
+        if(FinalDialogue.active == true && Manager3.inGame == true)
         {
             Vector3 bulletDirection = new Vector3(0, 0, -1);
             GameObject instBullet = Instantiate(bullet, transform.position, Quaternion.identity) as GameObject;

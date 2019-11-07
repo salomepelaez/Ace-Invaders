@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class Creator : MonoBehaviour
 {
-    public GameObject enemy;
+    GameObject enemy;
     bool damage;
 
     private void Start()
-    {      
-        
+    {     
         InvokeRepeating("Create1", 1f, 2f);
-        InvokeRepeating("Create2", 1f, 10f);  
-                  
+        InvokeRepeating("Create2", 1f, 10f);                    
     }
     
     void Create1()

@@ -11,7 +11,10 @@ public class BossBehaviour : MonoBehaviour
     
     Behaviour behaviour;
 
+    bool move;
+
     GameObject bullet;
+    GameObject allies;
 
     void Awake()
     {
@@ -21,8 +24,8 @@ public class BossBehaviour : MonoBehaviour
     private void Start()
     {        
         speed = 2f;
-      
-        InvokeRepeating("Movement", 1f, 1f);    
+
+        InvokeRepeating("Movement", 1f, 2f);    
     }
 
     private void Update()
@@ -33,15 +36,17 @@ public class BossBehaviour : MonoBehaviour
     void GetCloser()
     {
         float getCloserSpeed = 0.5f;
-        if(gameObject.transform.position.z >= -9f)
+        
+        if(FinalDialogue.active == true && gameObject.transform.position.z >= -9f)
         {
-            gameObject.transform.position += transform.forward * getCloserSpeed * Time.deltaTime;
+            gameObject.transform.position -= transform.forward * getCloserSpeed * Time.deltaTime;
+            move = true;
         }
     }
 
     void Movement()
     {
-        if(Manager3.inGame == true)
+        if(Manager3.inGame == true && move == true)
         {
             switch (Random.Range(0, 2))
             {
@@ -79,22 +84,40 @@ public class BossBehaviour : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         if (other.transform.tag == "Bullet")
-        {
-            if (other.transform.tag == "Bullet")
-            { 
-                Manager3.counterValue += 100;
+        { 
+            Manager3.counterValue += 100;
+            CreateAllies();
                 
-                bossLife = bossLife - PlayerController2.playerDamage; 
+            bossLife = bossLife - PlayerController2.playerDamage; 
 
-                if(bossLife <= 0)
-                {
-                    Destroy(gameObject);
-                    Manager3.winner = true;                    
-                }
-
-                Debug.Log(bossLife);      
+            if(bossLife <= 0)
+            {
+                Destroy(gameObject);
+                Manager3.winner = true;                    
             }
+
+            Debug.Log(bossLife);      
         }
+        
+    }
+
+    void CreateAllies()
+    {
+        allies = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        allies.layer = 9;
+        allies.transform.tag = "Enemy";
+        allies.AddComponent<BoxCollider>();
+        allies.GetComponent<BoxCollider>().isTrigger = true;
+        allies.AddComponent<Rigidbody>();
+        Vector3 pos = new Vector3();
+        pos.x = Random.Range(-5.6f, 10f);
+        pos.y = 0.1f;
+        pos.z = -4.5f;
+
+        allies.transform.position = pos;
+
+        allies.transform.position -= transform.forward * speed;
+
     }
        
     enum Behaviour
