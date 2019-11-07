@@ -25,6 +25,20 @@ public class BossBehaviour : MonoBehaviour
         InvokeRepeating("Movement", 1f, 1f);    
     }
 
+    private void Update()
+    {
+        GetCloser();
+    }
+
+    void GetCloser()
+    {
+        float getCloserSpeed = 0.5f;
+        if(gameObject.transform.position.z >= -9f)
+        {
+            gameObject.transform.position += transform.forward * getCloserSpeed * Time.deltaTime;
+        }
+    }
+
     void Movement()
     {
         if(Manager3.inGame == true)
