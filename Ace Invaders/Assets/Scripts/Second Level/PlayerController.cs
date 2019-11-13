@@ -7,7 +7,8 @@ public class PlayerController : MonoBehaviour
 {
     float speed = 0.1f;
     public TextMeshProUGUI lifeCounter;
-    public static int life;
+    public TextMeshProUGUI gameOver;
+    public int life;
 
     public AudioSource key;
     public AudioSource enemyDamage;
@@ -32,9 +33,11 @@ public class PlayerController : MonoBehaviour
 
         lifeCounter.text = "Life: " + life;
 
-            if(life <= 0)
-                lifeCounter.text = "";
-            
+        if (life <= 0)
+        {
+            lifeCounter.text = "";
+            gameOver.text = "You died!";
+        }   
     }
 
     void Move()
