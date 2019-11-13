@@ -46,7 +46,6 @@ public class Menu : MonoBehaviour
         if (Manager3.inGame == false)
         {
             Manager3.inGame = true;
-            Manager3.winner = false;
         }
     }
 }

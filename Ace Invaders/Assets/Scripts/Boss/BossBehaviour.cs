@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class BossBehaviour : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class BossBehaviour : MonoBehaviour
     bool move;
 
     GameObject bullet;
+
+    public TextMeshProUGUI winner;
 
     void Awake()
     {
@@ -91,7 +94,8 @@ public class BossBehaviour : MonoBehaviour
             if(bossLife <= 0)
             {
                 Destroy(gameObject);
-                Manager3.winner = true;                    
+                winner.text = "Winner";
+                Manager3.inGame = false;
             }
 
             Debug.Log(bossLife);      

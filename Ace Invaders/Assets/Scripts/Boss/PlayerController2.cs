@@ -40,14 +40,17 @@ public class PlayerController2 : MonoBehaviour
 
         lifeCounter.text = "Life: " + life;
 
-        if(life <= 0)
-            lifeCounter.text = "";
-
-        if(Manager3.winner == true)
+        if (life <= 0)
         {
+            Manager3.inGame = false;
+            lifeCounter.text = "";
+            gameOverText.text = "GAME OVER";
+            music.Stop();
+            loss.Play();
+            gameOver.Play();
+            sadMusic.Play();
             Destroy(player);
         }
-            
     }
 
     void Move()
@@ -97,18 +100,7 @@ public class PlayerController2 : MonoBehaviour
         if (other.transform.tag == "BossBullet")
         {
             enemyDamage.Play();
-            life = life - BossBullet.bossBulletDamage;
-            
-            if(life <= 0)
-            {
-                Manager3.inGame = false;
-                gameOverText.text = "GAME OVER";
-                music.Stop();
-                loss.Play();
-                gameOver.Play();
-                sadMusic.Play();
-                Destroy(player);
-            }
+            life = life - BossBullet.bossBulletDamage;            
         }
     }
 }

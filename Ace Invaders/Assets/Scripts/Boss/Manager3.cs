@@ -6,7 +6,6 @@ using TMPro;
 public class Manager3 : MonoBehaviour
 {
     public static bool inGame;
-    public static bool winner;
     public static int counterValue = 0;
     public TextMeshProUGUI score;
     public TextMeshProUGUI winnerText;
@@ -17,8 +16,5 @@ public class Manager3 : MonoBehaviour
             inGame = true;
 
         score.text = "Score: " + counterValue;
-
-        if (winner == true)
-            winnerText.text = "Winner";
     }
 }
