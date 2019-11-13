@@ -10,7 +10,7 @@ public class Manager : MonoBehaviour
     public GameObject next;
 
     void Start()
-    {
+    {        
         next.SetActive(false);
     }
 

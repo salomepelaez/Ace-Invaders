@@ -14,7 +14,6 @@ public class BossBehaviour : MonoBehaviour
     bool move;
 
     GameObject bullet;
-    GameObject allies;
 
     void Awake()
     {
@@ -86,7 +85,6 @@ public class BossBehaviour : MonoBehaviour
         if (other.transform.tag == "Bullet")
         { 
             Manager3.counterValue += 100;
-            CreateAllies();
                 
             bossLife = bossLife - PlayerController2.playerDamage; 
 
@@ -99,25 +97,6 @@ public class BossBehaviour : MonoBehaviour
             Debug.Log(bossLife);      
         }
         
-    }
-
-    void CreateAllies()
-    {
-        allies = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        allies.layer = 9;
-        allies.transform.tag = "Enemy";
-        allies.AddComponent<BoxCollider>();
-        allies.GetComponent<BoxCollider>().isTrigger = true;
-        allies.AddComponent<Rigidbody>();
-        Vector3 pos = new Vector3();
-        pos.x = Random.Range(-5.6f, 10f);
-        pos.y = 0.1f;
-        pos.z = -4.5f;
-
-        allies.transform.position = pos;
-
-        allies.transform.position -= transform.forward * speed;
-
     }
        
     enum Behaviour
