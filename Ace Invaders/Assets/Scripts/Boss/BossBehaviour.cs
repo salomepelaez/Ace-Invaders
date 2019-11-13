@@ -6,7 +6,7 @@ using TMPro;
 public class BossBehaviour : MonoBehaviour
 {
     public static int damage = 1;
-    public static int bossLife = 10;
+    public static int bossLife = 20;
     
     public static float speed;
     
@@ -48,7 +48,7 @@ public class BossBehaviour : MonoBehaviour
 
     void Movement()
     {
-        if(Manager3.inGame == true && move == true)
+        if(Manager3.inGame == true && FinalDialogue.active && move == true)
         {
             switch (Random.Range(0, 2))
             {

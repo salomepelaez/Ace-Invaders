@@ -6,9 +6,14 @@ using TMPro;
 public class Manager3 : MonoBehaviour
 {
     public static bool inGame;
-    public static int counterValue = 0;
+    public static int counterValue;
     public TextMeshProUGUI score;
     public TextMeshProUGUI winnerText;
+
+    private void Start()
+    {
+        counterValue = 0;
+    }
 
     public void Update()
     {

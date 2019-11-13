@@ -44,8 +44,10 @@ public class Menu : MonoBehaviour
     {
         SceneManager.LoadScene("Boss");
         if (Manager3.inGame == false)
-        {
-            Manager3.inGame = true;
-        }
+            Manager3.inGame = true;            
+        
+        if(Dialogue.active == true)
+            FinalDialogue.active = false;
+        
     }
 }
