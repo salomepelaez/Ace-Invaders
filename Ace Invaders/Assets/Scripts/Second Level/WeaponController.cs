@@ -15,7 +15,7 @@ public class WeaponController : MonoBehaviour
 
     public void Update()
     {
-        if (Messages.goAhead == true)  
+        if (Manager2.inGame == true && Messages.goAhead == true)  
         {
             if(Input.GetKeyDown(KeyCode.Space))
             {
@@ -27,13 +27,12 @@ public class WeaponController : MonoBehaviour
                 Destroy(instBullet, 1f);
                 shoot.Play();
             }
-        }
 
-        if(Input.GetKeyDown(KeyCode.F))
-        {
-            StartCoroutine("GoSlow");
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                StartCoroutine("GoSlow");
+            }
         }
-        
     } 
 
     IEnumerator GoSlow()

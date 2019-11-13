@@ -8,9 +8,14 @@ public class Manager2 : MonoBehaviour
 {
     public static bool inGame = true;
     public static bool winner;
-    public static int counterValue = 0;
+    public static int counterValue;
     public TextMeshProUGUI score;
-    
+
+    private void Start()
+    {
+        counterValue = 0;    
+    }
+
     public void Update()
     {
         score.text = "Score: " + counterValue;

@@ -77,14 +77,5 @@ public class PlayerController : MonoBehaviour
             if(life <= 0)
                 Manager2.inGame = false;
         }
-
-        if (other.transform.tag == "BossBullet")
-        {
-            enemyDamage.Play();
-            life = life - BossBehaviour.damage;
-            
-            if(life <= 0)
-                Manager3.inGame = false;
-        }
     }
 }
