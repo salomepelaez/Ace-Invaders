@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
         {
             if(Manager.inGame == true)
             {
-                Move();
+                MoveWithKeyBoard();
             }
 
             lifeCounter.text = "Life: " + life;
@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
         }        
     }
 
-    void Move()
+    void MoveWithKeyBoard()
     {      
         if(Manager.inGame == true)
         {
@@ -70,6 +70,42 @@ public class Player : MonoBehaviour
 
             if(life <= 0)
                 Manager.inGame = false;
+        }
+    }
+
+    public void MoveUp()
+    {
+        if (gameObject.transform.position.z <= -72f)
+        {
+            transform.position += transform.forward * speed *  Time.deltaTime;
+            key.Play();
+        }
+    }
+
+    public void MoveDown()
+    {
+        if (gameObject.transform.position.z >= -80f)
+        {
+            transform.position -= transform.forward * speed *  Time.deltaTime;
+            key.Play();
+        }
+    }
+
+    public void MoveLeft()
+    {
+        if (gameObject.transform.position.x >= -8.17f)
+        {
+            transform.position -= transform.right * speed *  Time.deltaTime;
+            key.Play();
+        }
+    }
+
+    public void MoveRight()
+    {
+        if (gameObject.transform.position.x <= 8.17f)
+        {
+            transform.position += transform.right * speed *  Time.deltaTime;
+            key.Play();
         }
     }
 }
