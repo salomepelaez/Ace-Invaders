@@ -75,37 +75,49 @@ public class Player : MonoBehaviour
 
     public void MoveUp()
     {
-        if (gameObject.transform.position.z <= -72f)
+        if (Input.touchCount > 0)
         {
-            transform.position += transform.forward * speed *  Time.deltaTime;
-            key.Play();
+            if (gameObject.transform.position.z <= -72f)
+            {
+                transform.position += transform.forward * speed * Time.deltaTime;
+                key.Play();
+            }
         }
     }
 
     public void MoveDown()
     {
-        if (gameObject.transform.position.z >= -80f)
+        if (Input.touchCount > 0)
         {
-            transform.position -= transform.forward * speed *  Time.deltaTime;
-            key.Play();
+            if (gameObject.transform.position.z >= -80f)
+            {
+                transform.position -= transform.forward * speed * Time.deltaTime;
+                key.Play();
+            }
         }
     }
 
     public void MoveLeft()
     {
-        if (gameObject.transform.position.x >= -8.17f)
+        if (Input.touchCount > 0)
         {
-            transform.position -= transform.right * speed *  Time.deltaTime;
-            key.Play();
+            if (gameObject.transform.position.x >= -8.17f)
+            {
+                transform.position -= transform.right * speed * Time.deltaTime;
+                key.Play();
+            }
         }
     }
 
     public void MoveRight()
     {
-        if (gameObject.transform.position.x <= 8.17f)
+        if (Input.touchCount > 0)
         {
-            transform.position += transform.right * speed *  Time.deltaTime;
-            key.Play();
+            if (gameObject.transform.position.x <= 8.17f)
+            {
+                transform.position += transform.right * speed * Time.deltaTime;
+                key.Play();
+            }
         }
     }
 }
