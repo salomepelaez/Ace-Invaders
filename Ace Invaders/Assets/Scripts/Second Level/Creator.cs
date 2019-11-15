@@ -5,6 +5,7 @@ using UnityEngine;
 public class Creator : MonoBehaviour
 {
     public GameObject e;
+    public GameObject e2;
     bool damage;
 
     private void Start()
@@ -41,7 +42,7 @@ public class Creator : MonoBehaviour
         {
             if (Messages.goAhead == true)
             {
-                enemy = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                GameObject enemy = Instantiate(e2, Vector3.zero, Quaternion.identity);
                 enemy.AddComponent<Enemy2>();
                 enemy.layer = 9;
                 enemy.AddComponent<BoxCollider>();
