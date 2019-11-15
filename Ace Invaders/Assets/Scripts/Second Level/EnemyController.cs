@@ -72,6 +72,7 @@ public class Enemy1 : EnemyController
 
     private void Start()
     {
+        Physics.IgnoreLayerCollision(10, 10, true);
         gameObject.GetComponent<Renderer>().material.color = Color.yellow;
         
         if(Manager2.inGame == true)
@@ -102,7 +103,8 @@ public class Enemy2 : EnemyController
     }
 
     private void Start()
-    { 
+    {
+        Physics.IgnoreLayerCollision(10, 10, true);
         gameObject.GetComponent<Renderer>().material.color = Color.red;
 
         if (Messages.goAhead == true)

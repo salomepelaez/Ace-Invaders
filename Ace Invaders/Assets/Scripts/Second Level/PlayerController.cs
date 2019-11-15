@@ -12,9 +12,13 @@ public class PlayerController : MonoBehaviour
 
     public AudioSource key;
     public AudioSource enemyDamage;
+    public AudioSource music;
+    public AudioSource gameOverMusic;
+    public AudioSource sadMusic;
     
     void Start()
     {
+        music.Play();
         life = 3;
     }
 
@@ -37,6 +41,9 @@ public class PlayerController : MonoBehaviour
         {
             lifeCounter.text = "";
             gameOver.text = "You died!";
+            music.Stop();
+            gameOverMusic.Play();
+            sadMusic.Play();
         }   
     }
 
