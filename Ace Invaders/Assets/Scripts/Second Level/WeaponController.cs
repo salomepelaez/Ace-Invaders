@@ -13,19 +13,25 @@ public class WeaponController : MonoBehaviour
         transform.tag = "Bullet";
     }
 
-    public void Update()
+    void Update()
     {
-        if (Manager2.inGame == true && Messages.goAhead == true)  
+        Shoot();
+    }
+
+    private void Shoot()
+    {
+        if (Manager2.inGame == true)
         {
-            if(Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 GameObject instBullet = Instantiate(bullet, transform.position, Quaternion.identity) as GameObject;
                 instBullet.transform.Rotate(Vector3.left * 90);
                 Rigidbody rigidbody = instBullet.GetComponent<Rigidbody>();
                 rigidbody.AddForce(Vector3.forward * speed);
 
-                Destroy(instBullet, 1f);
-                shoot.Play();
+                PlaySound();
+
+                Destroy(instBullet, 5f);
             }
 
             if (Input.GetKeyDown(KeyCode.F))
@@ -33,7 +39,29 @@ public class WeaponController : MonoBehaviour
                 StartCoroutine("GoSlow");
             }
         }
-    } 
+    }
+
+    public void ShootButton()
+    {
+        GameObject instBullet = Instantiate(bullet, transform.position, Quaternion.identity) as GameObject;
+        instBullet.transform.Rotate(Vector3.left * 90);
+        Rigidbody rigidbody = instBullet.GetComponent<Rigidbody>();
+        rigidbody.AddForce(Vector3.forward * speed);
+
+        PlaySound();
+
+        Destroy(instBullet, 5f);
+    }
+
+    public void Freeze()
+    {
+        StartCoroutine("GoSlow");
+    }
+
+    void PlaySound()
+    {
+        shoot.Play();
+    }
 
     IEnumerator GoSlow()
     {
@@ -41,6 +69,6 @@ public class WeaponController : MonoBehaviour
 
         yield return new WaitForSeconds(3f);
 
-        EnemyController.speed = 1f;
-    }  
+        EnemyController.speed = 3f;
+    }
 }

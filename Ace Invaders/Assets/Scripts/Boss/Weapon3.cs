@@ -13,26 +13,55 @@ public class Weapon3 : MonoBehaviour
         transform.tag = "Bullet";
     }
 
-    public void Update()
+    void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            GameObject instBullet = Instantiate(bullet, transform.position, Quaternion.identity) as GameObject;
-            instBullet.transform.Rotate(Vector3.left * 90);
-            Rigidbody rigidbody = instBullet.GetComponent<Rigidbody>();
-            rigidbody.AddForce(Vector3.forward * speed);
+        Shoot();
+    }
 
-            Destroy(instBullet, 1f);
-            shoot.Play();
-            
-        }
-
-        if(Input.GetKeyDown(KeyCode.F))
+    private void Shoot()
+    {
+        if (Manager3.inGame == true)
         {
-            StartCoroutine("GoSlow");
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                GameObject instBullet = Instantiate(bullet, transform.position, Quaternion.identity) as GameObject;
+                instBullet.transform.Rotate(Vector3.left * 90);
+                Rigidbody rigidbody = instBullet.GetComponent<Rigidbody>();
+                rigidbody.AddForce(Vector3.forward * speed);
+
+                PlaySound();
+
+                Destroy(instBullet, 5f);
+            }
+
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                StartCoroutine("GoSlow");
+            }
         }
-        
-    }   
+    }
+
+    public void ShootButton()
+    {
+        GameObject instBullet = Instantiate(bullet, transform.position, Quaternion.identity) as GameObject;
+        instBullet.transform.Rotate(Vector3.left * 90);
+        Rigidbody rigidbody = instBullet.GetComponent<Rigidbody>();
+        rigidbody.AddForce(Vector3.forward * speed);
+
+        PlaySound();
+
+        Destroy(instBullet, 5f);
+    }
+
+    public void Freeze()
+    {
+        StartCoroutine("GoSlow");
+    }
+
+    void PlaySound()
+    {
+        shoot.Play();
+    }
 
     IEnumerator GoSlow()
     {
@@ -40,6 +69,6 @@ public class Weapon3 : MonoBehaviour
 
         yield return new WaitForSeconds(3f);
 
-        BossBehaviour.speed = 2f;
+        BossBehaviour.speed = 3f;
     }
 }

@@ -92,4 +92,52 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
+    public void MoveUp()
+    {
+        if (Messages.goAhead == true && Input.touchCount > 0)
+        {
+            if (gameObject.transform.position.z <= 8f)
+            {
+                transform.position += transform.forward * speed * Time.deltaTime;
+                key.Play();
+            }
+        }
+    }
+
+    public void MoveDown()
+    {
+        if (Messages.goAhead == true && Input.touchCount > 0)
+        {
+            if (gameObject.transform.position.z >= -0.4f)
+            {
+                transform.position -= transform.forward * speed * Time.deltaTime;
+                key.Play();
+            }
+        }
+    }
+
+    public void MoveLeft()
+    {
+        if (Messages.goAhead == true && Input.touchCount > 0)
+        {
+            if (gameObject.transform.position.x <= 6f)
+            {
+                transform.position -= transform.right * speed * Time.deltaTime;
+                key.Play();
+            }
+        }
+    }
+
+    public void MoveRight()
+    {
+        if (Messages.goAhead == true && Input.touchCount > 0)
+        {
+            if (gameObject.transform.position.x >= -6f)
+            {
+                transform.position += transform.right * speed * Time.deltaTime;
+                key.Play();
+            }
+        }
+    }
 }
