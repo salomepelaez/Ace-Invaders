@@ -10,12 +10,13 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI gameOver;
     public int life;
 
+    public AudioSource music;
     public AudioSource key;
     public AudioSource enemyDamage;
-    public AudioSource music;
-    public AudioSource gameOverMusic;
+    public AudioSource loss;
+    public AudioSource gameOverSound;
     public AudioSource sadMusic;
-    
+
     void Start()
     {
         music.Play();
@@ -42,7 +43,8 @@ public class PlayerController : MonoBehaviour
             lifeCounter.text = "";
             gameOver.text = "You died!";
             music.Stop();
-            gameOverMusic.Play();
+            loss.Play();
+            gameOverSound.Play();
             sadMusic.Play();
         }   
     }
@@ -75,7 +77,7 @@ public class PlayerController : MonoBehaviour
                 key.Play();
             }
         }
-    }    
+    } 
     
     public void OnTriggerEnter(Collider other)
     {
