@@ -41,11 +41,7 @@ public class PlayerController : MonoBehaviour
         if (life <= 0)
         {
             lifeCounter.text = "";
-            gameOver.text = "You died!";
-            music.Stop();
-            loss.Play();
-            gameOverSound.Play();
-            sadMusic.Play();
+            gameOver.text = "You died!";            
         }   
     }
 
@@ -85,9 +81,15 @@ public class PlayerController : MonoBehaviour
         {
             enemyDamage.Play();
             life = life - EnemyController.damage;
-            
-            if(life <= 0)
+
+            if (life <= 0)
+            {
                 Manager2.inGame = false;
+                music.Stop();
+                loss.Play();
+                gameOverSound.Play();
+                sadMusic.Play();
+            }
         }
     }
 }
