@@ -25,7 +25,7 @@ public class BossBehaviour : MonoBehaviour
 
     private void Start()
     {        
-        speed = 2f;
+        speed = 3f;
 
         InvokeRepeating("Movement", 1f, 2f);    
     }
