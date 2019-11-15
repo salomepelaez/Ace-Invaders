@@ -503,7 +503,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 6c362c11938499b438ff26971842c6c3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -619,6 +619,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b69f6c6599dcbe49aea5656860f44b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  e: {fileID: 0}
+  e2: {fileID: 0}
 --- !u!1 &304987744
 GameObject:
   m_ObjectHideFlags: 0
@@ -2691,26 +2693,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 5a25b4d63655d804c912031f88662156, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100002, guid: 5a25b4d63655d804c912031f88662156, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: 5a25b4d63655d804c912031f88662156, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100006, guid: 5a25b4d63655d804c912031f88662156, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: 5a25b4d63655d804c912031f88662156, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 400012, guid: 5a25b4d63655d804c912031f88662156, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.5
@@ -2766,6 +2748,26 @@ PrefabInstance:
     - target: {fileID: 400012, guid: 5a25b4d63655d804c912031f88662156, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.061707
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 5a25b4d63655d804c912031f88662156, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 5a25b4d63655d804c912031f88662156, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 5a25b4d63655d804c912031f88662156, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 5a25b4d63655d804c912031f88662156, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: 5a25b4d63655d804c912031f88662156, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a25b4d63655d804c912031f88662156, type: 3}
