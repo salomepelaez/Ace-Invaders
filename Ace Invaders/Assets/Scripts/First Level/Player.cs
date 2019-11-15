@@ -75,7 +75,7 @@ public class Player : MonoBehaviour
 
     public void MoveUp()
     {
-        if (Input.touchCount > 0)
+        if (Dialogue.active == true && Input.touchCount > 0)
         {
             if (gameObject.transform.position.z <= -72f)
             {
@@ -87,7 +87,7 @@ public class Player : MonoBehaviour
 
     public void MoveDown()
     {
-        if (Input.touchCount > 0)
+        if (Dialogue.active == true && Input.touchCount > 0)
         {
             if (gameObject.transform.position.z >= -80f)
             {
@@ -99,7 +99,7 @@ public class Player : MonoBehaviour
 
     public void MoveLeft()
     {
-        if (Input.touchCount > 0)
+        if (Dialogue.active == true && Input.touchCount > 0)
         {
             if (gameObject.transform.position.x >= -8.17f)
             {
@@ -111,7 +111,7 @@ public class Player : MonoBehaviour
 
     public void MoveRight()
     {
-        if (Input.touchCount > 0)
+        if (Dialogue.active == true && Input.touchCount > 0)
         {
             if (gameObject.transform.position.x <= 8.17f)
             {
