@@ -25,7 +25,6 @@ public class Creator : MonoBehaviour
                 enemy.layer = 9;
                 enemy.AddComponent<BoxCollider>();
                 enemy.GetComponent<BoxCollider>().isTrigger = true;
-                enemy.AddComponent<Rigidbody>();
                 Vector3 pos = new Vector3();
                 pos.x = Random.Range(-4.74f, 5.37f);
                 pos.y = 1.66f;
@@ -47,7 +46,6 @@ public class Creator : MonoBehaviour
                 enemy.layer = 9;
                 enemy.AddComponent<BoxCollider>();
                 enemy.GetComponent<BoxCollider>().isTrigger = true;
-                enemy.AddComponent<Rigidbody>();
                 Vector3 pos = new Vector3();
                 pos.x = Random.Range(-4.74f, 5.37f);
                 pos.y = 1.66f;

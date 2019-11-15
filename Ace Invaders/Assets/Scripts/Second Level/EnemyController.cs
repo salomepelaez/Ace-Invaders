@@ -72,7 +72,6 @@ public class Enemy1 : EnemyController
 
     private void Start()
     {
-        Physics.IgnoreLayerCollision(10, 10, true);
         
         if(Manager2.inGame == true)
         {
@@ -103,8 +102,6 @@ public class Enemy2 : EnemyController
 
     private void Start()
     {
-        Physics.IgnoreLayerCollision(10, 10, true);
-
         if (Messages.goAhead == true)
         {        
             InvokeRepeating("Movement", 1f, 1f);            
