@@ -10,9 +10,12 @@ public class Player : MonoBehaviour
 
     public TextMeshProUGUI lifeCounter;
 
+    public Joystick joystick;
+
     public static int life = 3;
 
     float speed = 3f;
+    float horizontalMove = 0f;
 
     void Update()
     {
@@ -21,6 +24,7 @@ public class Player : MonoBehaviour
             if(Manager.inGame == true)
             {
                 MoveWithKeyBoard();
+                TouchMovement();
             }
 
             lifeCounter.text = "Life: " + life;
@@ -59,6 +63,11 @@ public class Player : MonoBehaviour
             }
         }
     }
+
+    void TouchMovement()
+    {
+        horizontalMove = joystick.Horizontal * speed;
+    }
     
     public void OnTriggerEnter(Collider other)
     {
@@ -70,54 +79,6 @@ public class Player : MonoBehaviour
 
             if(life <= 0)
                 Manager.inGame = false;
-        }
-    }
-
-    public void MoveUp()
-    {
-        if (Dialogue.active == true && Input.touchCount > 0)
-        {
-            if (gameObject.transform.position.z <= -72f)
-            {
-                transform.position += transform.forward * speed * Time.deltaTime;
-                key.Play();
-            }
-        }
-    }
-
-    public void MoveDown()
-    {
-        if (Dialogue.active == true && Input.touchCount > 0)
-        {
-            if (gameObject.transform.position.z >= -80f)
-            {
-                transform.position -= transform.forward * speed * Time.deltaTime;
-                key.Play();
-            }
-        }
-    }
-
-    public void MoveLeft()
-    {
-        if (Dialogue.active == true && Input.touchCount > 0)
-        {
-            if (gameObject.transform.position.x >= -8.17f)
-            {
-                transform.position -= transform.right * speed * Time.deltaTime;
-                key.Play();
-            }
-        }
-    }
-
-    public void MoveRight()
-    {
-        if (Dialogue.active == true && Input.touchCount > 0)
-        {
-            if (gameObject.transform.position.x <= 8.17f)
-            {
-                transform.position += transform.right * speed * Time.deltaTime;
-                key.Play();
-            }
         }
     }
 }
