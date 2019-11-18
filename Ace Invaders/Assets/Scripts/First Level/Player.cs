@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
 
     public Joystick joystick;
 
-    public static int life = 3;
+    int life = 3;
 
     float speed = 3f;
     float horizontalMove = 0f;
@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
             if(Manager.inGame == true)
             {
                 MoveWithKeyBoard();
-                TouchMovement();
+                horizontalMove = joystick.Horizontal * speed;
             }
 
             lifeCounter.text = "Life: " + life;
@@ -62,11 +62,6 @@ public class Player : MonoBehaviour
                 key.Play();
             }
         }
-    }
-
-    void TouchMovement()
-    {
-        horizontalMove = joystick.Horizontal * speed;
     }
     
     public void OnTriggerEnter(Collider other)

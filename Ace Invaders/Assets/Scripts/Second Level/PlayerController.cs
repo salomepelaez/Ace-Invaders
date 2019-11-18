@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     float speed = 0.1f;
     public TextMeshProUGUI lifeCounter;
     public TextMeshProUGUI gameOver;
+    
     public int life;
 
     public AudioSource music;
@@ -16,6 +17,10 @@ public class PlayerController : MonoBehaviour
     public AudioSource loss;
     public AudioSource gameOverSound;
     public AudioSource sadMusic;
+
+    public Joystick joystick;
+
+    float horizontalMove = 0f;
 
     void Start()
     {
@@ -33,7 +38,8 @@ public class PlayerController : MonoBehaviour
     {
         if (Messages.goAhead == true) 
         {
-            Move();            
+            Move();  
+            horizontalMove = joystick.Horizontal * speed;          
         }       
 
         lifeCounter.text = "Life: " + life;

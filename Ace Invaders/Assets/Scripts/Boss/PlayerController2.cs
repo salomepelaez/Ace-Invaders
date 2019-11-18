@@ -6,13 +6,11 @@ using TMPro;
 public class PlayerController2 : MonoBehaviour
 {
     public GameObject player;
-
-    float speed = 0.1f;
-
+    
     public TextMeshProUGUI lifeCounter;
     public TextMeshProUGUI gameOverText;
 
-    public static int life;
+    private int life;
     public static int playerDamage = 1;
 
     public AudioSource music;
@@ -21,6 +19,11 @@ public class PlayerController2 : MonoBehaviour
     public AudioSource loss;
     public AudioSource gameOver;
     public AudioSource sadMusic;
+
+    public Joystick joystick;
+
+    private float horizontalMove = 0f;
+    private float speed = 0.1f;
     
     void Start()
     {
@@ -36,7 +39,8 @@ public class PlayerController2 : MonoBehaviour
 
     void Update()
     {
-        Move();       
+        Move(); 
+        horizontalMove = joystick.Horizontal * speed;      
 
         lifeCounter.text = "Life: " + life;
 
