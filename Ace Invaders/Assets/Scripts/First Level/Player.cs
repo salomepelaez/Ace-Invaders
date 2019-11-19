@@ -11,11 +11,11 @@ public class Player : MonoBehaviour
     public TextMeshProUGUI lifeCounter;
 
     public Joystick joystick;
+    private Vector3 direction;
 
     int life = 3;
 
     float speed = 3f;
-    float horizontalMove = 0f;
 
     void Update()
     {
@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
             if(Manager.inGame == true)
             {
                 MoveWithKeyBoard();
-                horizontalMove = joystick.Horizontal * speed;
+                direction = joystick.Direction * speed;
             }
 
             lifeCounter.text = "Life: " + life;
