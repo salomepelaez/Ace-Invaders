@@ -6,7 +6,6 @@ public class Creator : MonoBehaviour
 {
     public GameObject e;
     public GameObject e2;
-    bool damage;
 
     private void Start()
     {     
