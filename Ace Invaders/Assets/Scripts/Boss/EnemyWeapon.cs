@@ -6,7 +6,7 @@ public class EnemyWeapon : MonoBehaviour
 {
     public AudioSource shoot;
     public GameObject bullet;
-    float speed = 800f;
+    float speed = 50f;
 
     void Awake()
     {

@@ -12,7 +12,9 @@ public class Dialogue : MonoBehaviour
     public static bool active;
 
     public GameObject button;
-        
+    public GameObject buttonShoot;
+    public GameObject buttonFreeze;
+
     public void Awake()
     {
         intro = GameObject.Find("Dialogue").GetComponent<TextMeshProUGUI>();        
@@ -20,7 +22,7 @@ public class Dialogue : MonoBehaviour
 
     private void Start()
     {
-        First();
+        First();        
     }    
 
     public void First()
@@ -28,6 +30,20 @@ public class Dialogue : MonoBehaviour
         intro.text = phrases[0];
     }
 
+    private void Update()
+    {
+        if(Manager.inGame == true)
+        {
+            buttonFreeze.SetActive(true);
+            buttonShoot.SetActive(true);
+        }
+
+        if (Manager.inGame == false)
+        {
+            buttonFreeze.SetActive(false);
+            buttonShoot.SetActive(false);
+        }
+    }
     IEnumerator PrintMessages()
     {
         foreach (char p in phrases[index].ToCharArray())

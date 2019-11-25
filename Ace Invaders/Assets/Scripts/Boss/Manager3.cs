@@ -16,13 +16,17 @@ public class Manager3 : MonoBehaviour
 
     private void Start()
     {
-        counterValue = 0;
+        counterValue = 0;        
     }
 
     public void Update()
     {
         if (FinalDialogue.active == true)
+        {
             inGame = true;
+            buttonFreeze.SetActive(true);
+            buttonShoot.SetActive(true);
+        }
 
         score.text = "Score: " + counterValue;
 

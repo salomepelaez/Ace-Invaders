@@ -6,7 +6,7 @@ using TMPro;
 public class BossBehaviour : MonoBehaviour
 {
     public static int damage = 1;
-    public static int bossLife = 20;
+    public static int bossLife = 50;
     
     public static float speed;
     

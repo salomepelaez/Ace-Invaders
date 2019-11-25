@@ -27,12 +27,12 @@ public class EnemyController : MonoBehaviour
                     
             if (behaviour == Behaviour.Left && gameObject.transform.position.x >= -6f)
             {
-                gameObject.transform.position -= transform.right * speed;
+                gameObject.transform.position -= transform.right * speed * Time.deltaTime;
             }
 
             else if (behaviour == Behaviour.Right && gameObject.transform.position.x <= 6)
             {
-                gameObject.transform.position += transform.right * speed;
+                gameObject.transform.position += transform.right * speed * Time.deltaTime;
 
                 if (gameObject.transform.position.x >= 8.17)
                 {
@@ -89,7 +89,7 @@ public class Enemy1 : EnemyController
     void EnemyMove()
     {
         if(Manager2.inGame == true)
-            transform.position -= transform.forward * speed;
+            transform.position -= transform.forward * speed * Time.deltaTime;
     }
 }
 
