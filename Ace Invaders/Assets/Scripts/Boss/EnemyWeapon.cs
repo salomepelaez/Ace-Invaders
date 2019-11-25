@@ -6,7 +6,7 @@ public class EnemyWeapon : MonoBehaviour
 {
     public AudioSource shoot;
     public GameObject bullet;
-    float speed = 50f;
+    float speed = 150f;
 
     void Awake()
     {
@@ -31,7 +31,7 @@ public class EnemyWeapon : MonoBehaviour
             instBullet.AddComponent<CapsuleCollider>();
             instBullet.GetComponent<CapsuleCollider>().isTrigger = true;
 
-            Destroy(instBullet, 1f);
+            Destroy(this.gameObject, 15f);
             shoot.Play();
         }       
             

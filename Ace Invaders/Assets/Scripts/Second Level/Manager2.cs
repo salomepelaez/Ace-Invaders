@@ -23,7 +23,7 @@ public class Manager2 : MonoBehaviour
     {
         score.text = "Score: " + counterValue;
 
-        if(counterValue == 1000)
+        if(counterValue == 600)
         {
             winner = true;
             inGame = false;
