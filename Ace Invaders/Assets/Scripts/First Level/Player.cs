@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     public TextMeshProUGUI lifeCounter;
 
     public Joystick joystick;
-    private Vector3 direction;
+    private Vector2 direction;
 
     int life = 3;
 
@@ -24,7 +24,8 @@ public class Player : MonoBehaviour
             if(Manager.inGame == true)
             {
                 MoveWithKeyBoard();
-                direction = joystick.Direction * speed;
+                direction = joystick.Direction * speed * Time.deltaTime;
+                transform.position += new Vector3(direction.x, 0f, direction.y);
             }
 
             lifeCounter.text = "Life: " + life;
