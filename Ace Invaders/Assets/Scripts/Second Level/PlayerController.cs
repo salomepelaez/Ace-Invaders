@@ -5,7 +5,8 @@ using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
-    float speed = 0.1f;
+    private float speed = 3f;
+
     public TextMeshProUGUI lifeCounter;
     public TextMeshProUGUI gameOver;
     
@@ -19,8 +20,7 @@ public class PlayerController : MonoBehaviour
     public AudioSource sadMusic;
 
     public Joystick joystick;
-
-    float horizontalMove = 0f;
+    private Vector2 direction;
 
     void Start()
     {
@@ -38,8 +38,9 @@ public class PlayerController : MonoBehaviour
     {
         if (Messages.goAhead == true) 
         {
-            Move();  
-            horizontalMove = joystick.Horizontal * speed;          
+            Move();
+            direction = joystick.Direction * speed * Time.deltaTime;
+            transform.position += new Vector3(direction.x, 0f, direction.y);
         }       
 
         lifeCounter.text = "Life: " + life;
@@ -57,25 +58,25 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.W) && gameObject.transform.position.z <= 8f)
             {
-                transform.position += transform.forward * speed;
+                transform.position += transform.forward * speed * Time.deltaTime;
                 key.Play();
             }
 
             if (Input.GetKey(KeyCode.S) && gameObject.transform.position.z >= -0.4f)
             {
-                transform.position -= transform.forward * speed;
+                transform.position -= transform.forward * speed * Time.deltaTime;
                 key.Play();
             }
 
             if (Input.GetKey(KeyCode.D) && gameObject.transform.position.x <= 6f)
             {
-                transform.position += transform.right * speed;
+                transform.position += transform.right * speed * Time.deltaTime;
                 key.Play();
             }
 
             if (Input.GetKey(KeyCode.A) && gameObject.transform.position.x >= -6f)
             {
-                transform.position -= transform.right * speed;
+                transform.position -= transform.right * speed * Time.deltaTime;
                 key.Play();
             }
         }

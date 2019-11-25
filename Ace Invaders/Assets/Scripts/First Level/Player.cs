@@ -13,9 +13,9 @@ public class Player : MonoBehaviour
     public Joystick joystick;
     private Vector2 direction;
 
-    int life = 3;
+    private int life = 3;
 
-    float speed = 3f;
+    private float speed = 3f;
 
     void Update()
     {

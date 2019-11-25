@@ -7,8 +7,12 @@ public class Manager3 : MonoBehaviour
 {
     public static bool inGame;
     public static int counterValue;
+
     public TextMeshProUGUI score;
     public TextMeshProUGUI winnerText;
+
+    public GameObject buttonShoot;
+    public GameObject buttonFreeze;
 
     private void Start()
     {
@@ -21,5 +25,11 @@ public class Manager3 : MonoBehaviour
             inGame = true;
 
         score.text = "Score: " + counterValue;
+
+        if (Manager3.inGame == false)
+        {
+            buttonFreeze.SetActive(false);
+            buttonShoot.SetActive(false);
+        }
     }
 }

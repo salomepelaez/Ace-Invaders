@@ -7,7 +7,10 @@ public class Manager : MonoBehaviour
     public static bool inGame;
     public static bool winner;
     public static int counterValue = 0;
+
     public GameObject next;
+    public GameObject buttonShoot;
+    public GameObject buttonFreeze;
 
     void Start()
     {        
@@ -21,6 +24,12 @@ public class Manager : MonoBehaviour
             winner = true;
             next.SetActive(true);
             inGame = false;
+        }
+
+        if (Manager.inGame == false)
+        {
+            buttonFreeze.SetActive(false);
+            buttonShoot.SetActive(false);
         }
     }
 }

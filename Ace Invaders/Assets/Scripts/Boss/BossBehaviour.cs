@@ -94,7 +94,7 @@ public class BossBehaviour : MonoBehaviour
             if(bossLife <= 0)
             {
                 Destroy(gameObject);
-                winner.text = "Winner";
+                winner.text = "You are now our hero";
                 Manager3.inGame = false;
             }
 

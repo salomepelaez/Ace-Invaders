@@ -21,9 +21,9 @@ public class PlayerController2 : MonoBehaviour
     public AudioSource sadMusic;
 
     public Joystick joystick;
+    private Vector2 direction;
 
-    private float horizontalMove = 0f;
-    private float speed = 0.1f;
+    private float speed = 3f;
     
     void Start()
     {
@@ -39,8 +39,9 @@ public class PlayerController2 : MonoBehaviour
 
     void Update()
     {
-        Move(); 
-        horizontalMove = joystick.Horizontal * speed;      
+        Move();
+        direction = joystick.Direction * speed * Time.deltaTime;
+        transform.position += new Vector3(direction.x, 0f, direction.y);
 
         lifeCounter.text = "Life: " + life;
 
@@ -63,25 +64,25 @@ public class PlayerController2 : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.W) && gameObject.transform.position.z <= -8f)
             {
-                transform.position += transform.forward * speed;
+                transform.position += transform.forward * speed * Time.deltaTime;
                 key.Play();
             }
 
             if (Input.GetKey(KeyCode.S) && gameObject.transform.position.z >= -14f)
             {
-                transform.position -= transform.forward * speed;
+                transform.position -= transform.forward * speed * Time.deltaTime;
                 key.Play();
             }
 
             if (Input.GetKey(KeyCode.D) && gameObject.transform.position.x <= 10)
             {
-                transform.position += transform.right * speed;
+                transform.position += transform.right * speed * Time.deltaTime;
                 key.Play();
             }
 
             if (Input.GetKey(KeyCode.A) && gameObject.transform.position.x >= -6.5f)
             {
-                transform.position -= transform.right * speed;
+                transform.position -= transform.right * speed * Time.deltaTime;
                 key.Play();
             }
         }
