@@ -514,8 +514,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 4a3d4293f31c70b4783ab0f30dea7abe, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.241
+  m_PlayOnAwake: 0
+  m_Volume: 0.48
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -613,18 +613,6 @@ Transform:
   m_Father: {fileID: 1214682452}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &350628940 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 908524971992631597, guid: a6ba33e7bf8046c40afa9fd16cc2956c,
-    type: 3}
-  m_PrefabInstance: {fileID: 908524972339062113}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fc4cfe4eab4917409431c37a4c7fa42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &406006550
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -929,6 +917,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 463611240}
   m_CullTransparentMesh: 0
+--- !u!1 &515130781 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 908524973612993129, guid: a6ba33e7bf8046c40afa9fd16cc2956c,
+    type: 3}
+  m_PrefabInstance: {fileID: 908524972339062113}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &515130788 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 908524973612993134, guid: a6ba33e7bf8046c40afa9fd16cc2956c,
+    type: 3}
+  m_PrefabInstance: {fileID: 908524972339062113}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &522132173
 GameObject:
   m_ObjectHideFlags: 0
@@ -1055,6 +1055,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1214682452}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &679725379
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 679725381}
+  - component: {fileID: 679725380}
+  m_Layer: 0
+  m_Name: WeaponHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &679725380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679725379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fc4cfe4eab4917409431c37a4c7fa42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shoot: {fileID: 1396339603}
+  bullet: {fileID: 3920477820470278030, guid: b56c9369e0e97b645856e895cb174dbe, type: 3}
+--- !u!4 &679725381
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679725379}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 515130788}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &844017377
 GameObject:
@@ -2099,7 +2144,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 350628940}
+      - m_Target: {fileID: 679725380}
         m_MethodName: ShootButton
         m_Mode: 1
         m_Arguments:
@@ -2988,7 +3033,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 350628940}
+      - m_Target: {fileID: 679725380}
         m_MethodName: Freeze
         m_Mode: 1
         m_Arguments:
@@ -4636,6 +4681,11 @@ PrefabInstance:
       propertyPath: joystick
       value: 
       objectReference: {fileID: 1344448204}
+    - target: {fileID: 908524973612993131, guid: a6ba33e7bf8046c40afa9fd16cc2956c,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 515130781}
     - target: {fileID: 908524971992631597, guid: a6ba33e7bf8046c40afa9fd16cc2956c,
         type: 3}
       propertyPath: shoot

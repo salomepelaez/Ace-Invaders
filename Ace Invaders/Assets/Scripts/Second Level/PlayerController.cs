@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
     public Joystick joystick;
     private Vector2 direction;
 
+    public GameObject player;
+
     void Start()
     {
         music.Play();
@@ -91,60 +93,17 @@ public class PlayerController : MonoBehaviour
 
             if (life <= 0)
             {
+                Destroy(player);
                 Manager2.inGame = false;
-                music.Stop();
-                loss.Play();
-                gameOverSound.Play();
-                sadMusic.Play();
+                LossSound();
             }
         }
     }
 
-    public void MoveUp()
+    void LossSound()
     {
-        if (Messages.goAhead == true && Input.touchCount > 0)
-        {
-            if (gameObject.transform.position.z <= 8f)
-            {
-                transform.position += transform.forward * speed * Time.deltaTime;
-                key.Play();
-            }
-        }
-    }
-
-    public void MoveDown()
-    {
-        if (Messages.goAhead == true && Input.touchCount > 0)
-        {
-            if (gameObject.transform.position.z >= -0.4f)
-            {
-                transform.position -= transform.forward * speed * Time.deltaTime;
-                key.Play();
-            }
-        }
-    }
-
-    public void MoveLeft()
-    {
-        if (Messages.goAhead == true && Input.touchCount > 0)
-        {
-            if (gameObject.transform.position.x <= 6f)
-            {
-                transform.position -= transform.right * speed * Time.deltaTime;
-                key.Play();
-            }
-        }
-    }
-
-    public void MoveRight()
-    {
-        if (Messages.goAhead == true && Input.touchCount > 0)
-        {
-            if (gameObject.transform.position.x >= -6f)
-            {
-                transform.position += transform.right * speed * Time.deltaTime;
-                key.Play();
-            }
-        }
+        loss.Play();
+        music.Stop();
+        sadMusic.Play();
     }
 }

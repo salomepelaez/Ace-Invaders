@@ -6,7 +6,7 @@ public class EnemyController : MonoBehaviour
 {
     public static int damage = 1;
     
-    public static float speed = 1f;
+    public static float speed = 10f;
     
     Behaviour behaviour;
 
