@@ -732,11 +732,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 260775579}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.5, y: 0.1, z: -4.02}
+  m_LocalPosition: {x: 2.5, y: 1.43, z: -4.3}
   m_LocalScale: {x: 3.0459728, y: 3.0459728, z: 3.0459728}
   m_Children:
   - {fileID: 625273127}
-  - {fileID: 278457794}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -769,51 +768,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!1 &278457793
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 278457794}
-  - component: {fileID: 278457795}
-  m_Layer: 10
-  m_Name: Allies
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &278457794
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 278457793}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 260775583}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &278457795
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 278457793}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b69f6c6599dcbe49aea5656860f44b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  e: {fileID: 0}
-  e2: {fileID: 0}
 --- !u!1 &304987744
 GameObject:
   m_ObjectHideFlags: 0
@@ -1784,7 +1738,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 524208917}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 2, y: 2.81, z: -11.33}
+  m_LocalPosition: {x: 2, y: 3.55, z: -11.33}
   m_LocalScale: {x: 1, y: 0.61894, z: 1.0081}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4067,6 +4021,11 @@ PrefabInstance:
       propertyPath: joystick
       value: 
       objectReference: {fileID: 60337641}
+    - target: {fileID: 908524973612993133, guid: a6ba33e7bf8046c40afa9fd16cc2956c,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 908524971992631597, guid: a6ba33e7bf8046c40afa9fd16cc2956c, type: 3}
     - {fileID: 908524973612993131, guid: a6ba33e7bf8046c40afa9fd16cc2956c, type: 3}

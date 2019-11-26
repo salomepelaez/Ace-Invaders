@@ -31,7 +31,7 @@ public class EnemyWeapon : MonoBehaviour
             instBullet.AddComponent<CapsuleCollider>();
             instBullet.GetComponent<CapsuleCollider>().isTrigger = true;
 
-            Destroy(this.gameObject, 15f);
+            Destroy(this.gameObject, 10f);
             shoot.Play();
         }       
             

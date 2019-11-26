@@ -6,7 +6,7 @@ using TMPro;
 public class BossBehaviour : MonoBehaviour
 {
     public static int damage = 1;
-    public static int bossLife = 50;
+    public static int bossLife;
     
     public static float speed;
     
@@ -26,6 +26,7 @@ public class BossBehaviour : MonoBehaviour
     private void Start()
     {        
         speed = 3f;
+        bossLife = 50;
 
         InvokeRepeating("Movement", 1f, 2f);    
     }
