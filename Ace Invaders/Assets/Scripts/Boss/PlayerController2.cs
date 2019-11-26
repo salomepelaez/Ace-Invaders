@@ -6,7 +6,9 @@ using TMPro;
 public class PlayerController2 : MonoBehaviour
 {
     public GameObject player;
-    
+    public GameObject buttonShoot;
+    public GameObject buttonFreeze;
+
     public TextMeshProUGUI lifeCounter;
     public TextMeshProUGUI gameOverText;
 
@@ -35,6 +37,9 @@ public class PlayerController2 : MonoBehaviour
     {
         gameObject.layer = 10;
         transform.tag = "Player";
+
+        buttonFreeze.SetActive(true);
+        buttonShoot.SetActive(true);
     }
 
     void Update()
@@ -99,6 +104,8 @@ public class PlayerController2 : MonoBehaviour
             {
                 Manager3.inGame = false;
                 gameOverText.text = "GAME OVER";
+                buttonFreeze.SetActive(false);
+                buttonShoot.SetActive(false);
             }
         }
 
@@ -106,54 +113,6 @@ public class PlayerController2 : MonoBehaviour
         {
             enemyDamage.Play();
             life = life - BossBullet.bossBulletDamage;            
-        }
-    }
-
-    public void MoveUp()
-    {
-        if (FinalDialogue.active == true && Input.touchCount > 0)
-        {
-            if (gameObject.transform.position.z <= -8f)
-            {
-                transform.position += transform.forward * speed * Time.deltaTime;
-                key.Play();
-            }
-        }
-    }
-
-    public void MoveDown()
-    {
-        if (FinalDialogue.active == true && Input.touchCount > 0)
-        {
-            if (gameObject.transform.position.z >= -80f)
-            {
-                transform.position -= transform.forward * speed * Time.deltaTime;
-                key.Play();
-            }
-        }
-    }
-
-    public void MoveLeft()
-    {
-        if (FinalDialogue.active == true && Input.touchCount > 0)
-        {
-            if (gameObject.transform.position.x >= -6.5f)
-            {
-                transform.position -= transform.right * speed * Time.deltaTime;
-                key.Play();
-            }
-        }
-    }
-
-    public void MoveRight()
-    {
-        if (FinalDialogue.active == true && Input.touchCount > 0)
-        {
-            if (gameObject.transform.position.x <= 10)
-            {
-                transform.position += transform.right * speed * Time.deltaTime;
-                key.Play();
-            }
         }
     }
 }

@@ -14,9 +14,10 @@ public class BossBehaviour : MonoBehaviour
 
     bool move;
 
-    GameObject bullet;
-
     public TextMeshProUGUI winner;
+
+    public GameObject buttonShoot;
+    public GameObject buttonFreeze;
 
     void Awake()
     {
@@ -97,6 +98,9 @@ public class BossBehaviour : MonoBehaviour
                 Destroy(gameObject);
                 winner.text = "You are now our hero";
                 Manager3.inGame = false;
+
+                buttonFreeze.SetActive(false);
+                buttonShoot.SetActive(false);
             }
 
             Debug.Log(bossLife);      

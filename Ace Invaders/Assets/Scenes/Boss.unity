@@ -752,6 +752,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winner: {fileID: 308486452}
+  buttonShoot: {fileID: 335891360}
+  buttonFreeze: {fileID: 651368624}
 --- !u!54 &260775585
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1471,8 +1473,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: {fileID: 217084123}
   winnerText: {fileID: 308486452}
-  buttonShoot: {fileID: 335891360}
-  buttonFreeze: {fileID: 651368624}
 --- !u!4 &450841779
 Transform:
   m_ObjectHideFlags: 0
@@ -1515,7 +1515,8 @@ MonoBehaviour:
   phrases:
   - You've done it great.
   - But not enough.
-  - He's mad.
+  - He's angry and armed.
+  - You might be aware of his weapon.
   - '-'
   button: {fileID: 929664034}
 --- !u!1 &472551802
@@ -2625,9 +2626,9 @@ RectTransform:
   m_Father: {fileID: 1067860335}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.2972831}
-  m_AnchorMax: {x: 0.5, y: 0.2972831}
-  m_AnchoredPosition: {x: -80, y: 12}
+  m_AnchorMin: {x: 0.5826408, y: 0.22735295}
+  m_AnchorMax: {x: 0.5826408, y: 0.22735295}
+  m_AnchoredPosition: {x: -80, y: 16}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1057424369
@@ -3513,6 +3514,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1295423117}
+  buttonShoot: {fileID: 335891360}
+  buttonFreeze: {fileID: 651368624}
   lifeCounter: {fileID: 1758732326}
   gameOverText: {fileID: 1215782354}
   music: {fileID: 158768455}

@@ -11,8 +11,6 @@ public class Manager3 : MonoBehaviour
     public TextMeshProUGUI score;
     public TextMeshProUGUI winnerText;
 
-    public GameObject buttonShoot;
-    public GameObject buttonFreeze;
 
     private void Start()
     {
@@ -24,16 +22,8 @@ public class Manager3 : MonoBehaviour
         if (FinalDialogue.active == true)
         {
             inGame = true;
-            buttonFreeze.SetActive(true);
-            buttonShoot.SetActive(true);
         }
 
         score.text = "Score: " + counterValue;
-
-        if (Manager3.inGame == false)
-        {
-            buttonFreeze.SetActive(false);
-            buttonShoot.SetActive(false);
-        }
     }
 }
