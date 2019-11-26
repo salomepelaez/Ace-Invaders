@@ -32,7 +32,9 @@ public class Player : MonoBehaviour
 
             if(life <= 0)
                 lifeCounter.text = "";
-        }        
+        }
+
+        LimitateAxis();
     }
 
     void MoveWithKeyBoard()
@@ -64,7 +66,30 @@ public class Player : MonoBehaviour
             }
         }
     }
-    
+
+    private void LimitateAxis()
+    {
+        if (gameObject.transform.position.z >= -72f)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, -72f);
+        }
+
+        else if (gameObject.transform.position.z <= -80f)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, -80f);
+        }
+
+        else if (gameObject.transform.position.x >= 8.17f)
+        {
+            transform.position = new Vector3(8.17f, transform.position.y, transform.position.z);
+        }
+
+        else if (gameObject.transform.position.x <= -8.17f)
+        {
+            transform.position = new Vector3(-8.17f, transform.position.y, transform.position.z);
+        }
+    }
+
     public void OnTriggerEnter(Collider other)
     {
         if (other.transform.tag == "Enemy")
