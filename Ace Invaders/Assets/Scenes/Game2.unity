@@ -1650,7 +1650,7 @@ Transform:
   m_GameObject: {fileID: 930080107}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0.28, y: 1, z: 3.7}
-  m_LocalScale: {x: 1.8292, y: 1.0673, z: 1}
+  m_LocalScale: {x: 2.033522, y: 1.0673, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 12
@@ -2710,7 +2710,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.20582356}
   m_AnchorMax: {x: 0.5, y: 0.20582356}
-  m_AnchoredPosition: {x: 0, y: -4}
+  m_AnchoredPosition: {x: 0, y: -4.0000076}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1430467353
@@ -4691,5 +4691,15 @@ PrefabInstance:
       propertyPath: shoot
       value: 
       objectReference: {fileID: 1396339603}
+    - target: {fileID: 908524973612993133, guid: a6ba33e7bf8046c40afa9fd16cc2956c,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 908524973612993130, guid: a6ba33e7bf8046c40afa9fd16cc2956c,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 116
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6ba33e7bf8046c40afa9fd16cc2956c, type: 3}

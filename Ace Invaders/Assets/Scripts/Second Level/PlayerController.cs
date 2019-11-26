@@ -45,13 +45,7 @@ public class PlayerController : MonoBehaviour
             transform.position += new Vector3(direction.x, 0f, direction.y);
         }       
 
-        lifeCounter.text = "Life: " + life;
-
-        if (life <= 0)
-        {
-            lifeCounter.text = "";
-            gameOver.text = "You died!";            
-        }   
+        lifeCounter.text = "Life: " + life; 
     }
 
     void Move()
@@ -90,12 +84,16 @@ public class PlayerController : MonoBehaviour
         {
             enemyDamage.Play();
             life = life - EnemyController.damage;
+            Debug.Log(life);
 
             if (life <= 0)
             {
                 Destroy(player);
                 Manager2.inGame = false;
                 LossSound();
+
+                lifeCounter.text = "";
+                gameOver.text = "You died!";
             }
         }
     }

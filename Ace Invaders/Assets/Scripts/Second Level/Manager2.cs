@@ -7,7 +7,6 @@ using TMPro;
 public class Manager2 : MonoBehaviour
 {
     public static bool inGame = true;
-    public static bool winner;
     public static int counterValue;
     public TextMeshProUGUI score;
 
@@ -25,7 +24,6 @@ public class Manager2 : MonoBehaviour
 
         if(counterValue == 600)
         {
-            winner = true;
             inGame = false;
             SceneManager.LoadScene("Boss");
         }
