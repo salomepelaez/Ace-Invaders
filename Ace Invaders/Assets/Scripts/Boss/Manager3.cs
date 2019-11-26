@@ -9,8 +9,6 @@ public class Manager3 : MonoBehaviour
     public static int counterValue;
 
     public TextMeshProUGUI score;
-    public TextMeshProUGUI winnerText;
-
 
     private void Start()
     {

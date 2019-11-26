@@ -33,7 +33,6 @@ public class EnemyWeapon : MonoBehaviour
 
             Destroy(this.gameObject, 10f);
             shoot.Play();
-        }       
-            
+        }    
     }
 }

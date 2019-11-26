@@ -6,13 +6,12 @@ using TMPro;
 public class BossBehaviour : MonoBehaviour
 {
     public static int damage = 1;
-    public static int bossLife;
-    
+    public static int bossLife;    
     public static float speed;
     
     Behaviour behaviour;
 
-    bool move;
+    private bool move;
 
     public TextMeshProUGUI winner;
 
@@ -101,11 +100,8 @@ public class BossBehaviour : MonoBehaviour
 
                 buttonFreeze.SetActive(false);
                 buttonShoot.SetActive(false);
-            }
-
-            Debug.Log(bossLife);      
-        }
-        
+            } 
+        }        
     }
        
     enum Behaviour

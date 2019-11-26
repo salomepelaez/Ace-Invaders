@@ -5,7 +5,6 @@ using UnityEngine;
 public class Manager : MonoBehaviour
 {
     public static bool inGame;
-    public static bool winner;
     public static int counterValue = 0;
 
     public GameObject next;    
@@ -19,7 +18,6 @@ public class Manager : MonoBehaviour
     {
         if(counterValue == 30)
         {
-            winner = true;
             next.SetActive(true);
             inGame = false;
         }

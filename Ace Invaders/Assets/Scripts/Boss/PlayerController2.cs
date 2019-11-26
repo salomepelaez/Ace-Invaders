@@ -61,6 +61,8 @@ public class PlayerController2 : MonoBehaviour
             sadMusic.Play();
             Destroy(player);
         }
+
+        LimitateAxis();
     }
 
     void Move()
@@ -91,8 +93,31 @@ public class PlayerController2 : MonoBehaviour
                 key.Play();
             }
         }
-    }    
-    
+    }
+
+    private void LimitateAxis()
+    {
+        if (gameObject.transform.position.z >= -8f)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, -8f);
+        }
+
+        else if (gameObject.transform.position.z <= -14f)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, -14f);
+        }
+
+        else if (gameObject.transform.position.x >= 10f)
+        {
+            transform.position = new Vector3(10f, transform.position.y, transform.position.z);
+        }
+
+        else if (gameObject.transform.position.x <= -6.5f)
+        {
+            transform.position = new Vector3(-6.5f, transform.position.y, transform.position.z);
+        }
+    }
+
     public void OnTriggerEnter(Collider other)
     {
         if (other.transform.tag == "Enemy")

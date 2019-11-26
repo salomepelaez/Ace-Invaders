@@ -45,7 +45,9 @@ public class PlayerController : MonoBehaviour
             transform.position += new Vector3(direction.x, 0f, direction.y);
         }       
 
-        lifeCounter.text = "Life: " + life; 
+        lifeCounter.text = "Life: " + life;
+
+        LimitateAxis();
     }
 
     void Move()
@@ -95,6 +97,29 @@ public class PlayerController : MonoBehaviour
                 lifeCounter.text = "";
                 gameOver.text = "You died!";
             }
+        }
+    }
+
+    private void LimitateAxis()
+    {
+        if (gameObject.transform.position.z >= 8f)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, 8f);
+        }
+
+        else if (gameObject.transform.position.z <= -0.4f)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, -0.4f);
+        }
+
+        else if (gameObject.transform.position.x >= 6f)
+        {
+            transform.position = new Vector3(6f, transform.position.y, transform.position.z);
+        }
+
+        else if (gameObject.transform.position.x <= -6f)
+        {
+            transform.position = new Vector3(-6f, transform.position.y, transform.position.z);
         }
     }
 
