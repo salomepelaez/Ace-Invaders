@@ -35,9 +35,6 @@ public class Menu : MonoBehaviour
 
         if(Manager2.inGame == false)
             Manager2.inGame = true;
-
-        if (Messages.goAhead == true)
-            Messages.goAhead = false;
     }
 
     public void RestartBoss()
